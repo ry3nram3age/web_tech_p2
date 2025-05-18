@@ -27,21 +27,7 @@
 <body>
 
     <!-- ================= HEADER SECTION ================= -->
-    <header>
-        <!-- Clickable company logo linking back to homepage -->
-      
-        <a href="index.html">
-            <img src="images/Data_Nexus_Logo-Photoroom.png" id="home-logo" alt="Data Nexus Official Logo">
-        </a>
-   
-        <!-- Navigation bar for page links -->
-        <nav id="home-navigation">
-            <a href="index.html" class="home-navlinks">Home</a>
-            <a href="jobs.html" class="home-navlinks">Jobs</a>
-            <a href="apply.html" class="home-navlinks">Apply</a>
-            <a href="about.html" class="home-navlinks" id=about-current-page>About</a>
-        </nav>
-    </header>
+     <?php include 'includes/header.inc'; ?>
     
     <!-- ================= MAIN CONTENT SECTION ================= -->
     <main id="about-main">
