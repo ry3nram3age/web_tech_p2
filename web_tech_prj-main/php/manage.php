@@ -25,7 +25,7 @@
         <title>HR Page</title> <!-- Temp Name -->
     </head>
 
-<!-------- HEAkkkDER --------->
+<!-------- HEADER --------->
     <header>
 
     </header>
