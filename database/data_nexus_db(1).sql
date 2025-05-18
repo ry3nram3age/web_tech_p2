@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 18, 2025 at 08:37 AM
+-- Generation Time: May 18, 2025 at 10:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,6 +42,34 @@ CREATE TABLE `expressions_of_interest` (
   `other_skills` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `job_id` int(11) NOT NULL,
+  `position` varchar(60) NOT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `salary` varchar(40) DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
+  `description` varchar(2000) DEFAULT NULL,
+  `responsibilities` varchar(1000) DEFAULT NULL,
+  `qualifications` varchar(1000) DEFAULT NULL,
+  `experience` varchar(1000) DEFAULT NULL,
+  `languages` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`job_id`, `position`, `company`, `location`, `salary`, `id`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
+(1, 'Cybersecurity Specialist', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
+(2, 'Investigation Team Leader', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -53,6 +81,12 @@ ALTER TABLE `expressions_of_interest`
   ADD PRIMARY KEY (`EOInumber`);
 
 --
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`job_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -61,6 +95,12 @@ ALTER TABLE `expressions_of_interest`
 --
 ALTER TABLE `expressions_of_interest`
   MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
