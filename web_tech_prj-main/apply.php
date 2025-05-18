@@ -50,13 +50,13 @@
     </div>
 
     <!-- ========== APPLICATION FORM ========== -->
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="jobApplicationForm">
+    <form method="post" action="php/process_eoi.php" id="jobApplicationForm">
 
         <!-- Step 1: Job Reference Number -->
         <fieldset data-step="1">
             <legend>Job Reference Number</legend>
             <label for="jobReferenceNumber">Job Reference Number</label>
-            <select name="jobReferenceNumber" id="jobReferenceNumber" required>
+            <select name="jobReferenceNumber" id="jobReferenceNumber">
                 <option value="">-- Select Reference --</option>
                 <option value="00001">00001 - Cybersecurity Specialist</option>
                 <option value="00002">00002 - Investigation Team Leader</option>
@@ -70,26 +70,26 @@
             <!-- Name fields with alphabet-only patterns -->
             <div id="apply-input-fn">
                 <label for="firstName">First Name</label> 
-                <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]{1,30}" maxlength="30" placeholder="Please enter your first name" value="" required>
+                <input type="text" name="firstName" id="firstName" placeholder="Please enter your first name" value="">
             </div>
 
             <div id="apply-first-ln">
                 <label for="lastName">Last Name</label> 
-                <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]{1,30}" maxlength="30" placeholder="Please enter your last name" value="" required>
+                <input type="text" name="lastName" id="lastName" placeholder="Please enter your last name" value="">
             </div>
 
             <!-- Date of birth -->
             <div id="apply-input-dob">
                 <label for="dateOfBirth">Date of Birth</label> 
-                <input type="date" name="dateOfBirth" id="dateOfBirth" value="" required>
+                <input type="date" name="dateOfBirth" id="dateOfBirth" value="">
             </div>
 
             <!-- Gender radio buttons -->
             <div class="gender-radio-group">
                     <label for="gender">Gender</label>
-                    Male<input type="radio" name="gender" id="male" value="Male" required>
-                    Female<input type="radio" name="gender" id="female" value="Female"required>
-                    Other<input type="radio" name="gender" id="other" value="Other"required>
+                    Male<input type="radio" name="gender" id="male" value="Male">
+                    Female<input type="radio" name="gender" id="female" value="Female">
+                    Other<input type="radio" name="gender" id="other" value="Other">
             </div>
             
         </fieldset>
@@ -102,19 +102,19 @@
                 <!-- Street address -->
                 <p>
                     <label for="address">Street Address</label> 
-                    <input type="text" name="address" id="address" placeholder="26 Lammington Drive" value="" required>
+                    <input type="text" name="address" id="address" placeholder="26 Lammington Drive" value="">
                 </p>
 
                 <!-- Suburb with validation -->
                 <p>
                     <label for="suburb">Suburb / Town</label> 
-                    <input type="text" name="suburb" id="suburb" placeholder="Please enter your suburb here" pattern="[A-Za-z\s'\-]{2,50}" maxlength="50" value="" required>
+                    <input type="text" name="suburb" id="suburb" placeholder="Please enter your suburb here" value="">
                 </p>
 
                 <!-- State dropdown -->
                 <p>
                     <label for="state">State</label>
-                    <select name="state" id="state" required>
+                    <select name="state" id="state">
                         <option value="" disabled selected>-- Select State --</option>
                         <option value="NSW">NSW</option>
                         <option value="VIC">VIC</option>
@@ -130,7 +130,7 @@
                 <!-- Postcode must be 4 digits -->
                 <p>
                     <label for="postcode">Postcode</label>
-                    <input type="text" name="postcode" id="postcode" placeholder="Please enter your postcode here" maxlength="4" pattern="^\d{4}$" value="" required>
+                    <input type="text" name="postcode" id="postcode" placeholder="Please enter your postcode here" value="">
                 </p>
             </div>
         </fieldset>
@@ -142,13 +142,13 @@
             <!-- Email with HTML5 pattern validation -->
             <p>
                 <label for="email">Email Address</label>
-                <input type="text" name="email" id="email" placeholder="Please enter your email address here" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="" required>
+                <input type="text" name="email" id="email" placeholder="Please enter your email address here" value="">
             </p>
 
             <!-- Australian phone number pattern -->
             <p>
                 <label for="phoneNumber">Phone Number</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Please enter your phone number here" pattern="[0-9\s]{8,12}" value="" required>
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Please enter your phone number here" value="">
             </p>
         </fieldset>
 
@@ -163,7 +163,7 @@
 
             <p>
                 <label for="otherSkills">Other Skills</label>
-                <textarea type="text" name="otherSkills" id="otherSkills" placeholder="Please enter any other relevant skills here" required></textarea>
+                <textarea type="text" name="otherSkills" id="otherSkills" placeholder="Please enter any other relevant skills here"></textarea>
             </p>
         </fieldset>
 
