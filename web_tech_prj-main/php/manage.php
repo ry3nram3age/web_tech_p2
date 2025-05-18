@@ -15,7 +15,7 @@
         <meta name="description" content="Meet the Data Nexus team. Learn about our mission, team members, and what makes us a unique cybersecurity company.">
 
         <!-- Keywords for SEO focusing on company and team details -->
-        <meta name="keywords" content="Data Nexus team, about us, cybersecurity company, company mission, team members, fun facts, company background">
+        <meta name="keywords" content="Data Nexus team, about us, cybersecurity company, company mission, team members, fun facts, company background, HR, Human Resources">
 
         <!-- USED CHATGPT TO ANALYSE THE REQUIREMENTS, TO MAKE SURE WE COVERED EVERYTHING NEEDED BY THE ASSIGHMENT-->
 
@@ -33,7 +33,7 @@
 
 <!---------- BODY --------->
     <body>
-        <h1>Health and Resources Manegment Quearies<h1>
+        <h1>Human Resources Manegment Quearies<h1>
         <b>Content Goes Here (Placeholder)</b>
     </body>
 <!------------------------->
