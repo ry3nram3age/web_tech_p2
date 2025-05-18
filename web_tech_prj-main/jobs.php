@@ -29,21 +29,8 @@
 
     <!-- ========== HEADER SECTION ========== -->
     <!-- Contains the site logo and main navigation -->
-    <header>
-        <!-- Logo linking back to homepage -->
-        <a href="index.html">
-            <img src="images/Data_Nexus_Logo-Photoroom.png" id="home-logo" alt="Data Nexus Official Logo">
-        </a>
-
-        <!-- Main site navigation -->
-        <nav id="home-navigation">
-            <a href="index.html" class="home-navlinks">Home</a>
-            <a href="jobs.html" class="home-navlinks" id="jobs-current-page">Jobs</a>
-            <a href="apply.html" class="home-navlinks">Apply</a>
-            <a href="about.html" class="home-navlinks">About</a>
-        </nav>
-    </header>
-
+    <?php include 'includes/header.inc'; ?>
+    
     <!-- ========== MAIN SECTION: JOB LISTINGS ========== -->
     <main>
         <section id="jobs">
@@ -189,13 +176,8 @@
 
     <!-- ========== FOOTER SECTION ========== -->
     <!-- Contains Jira link and contact info -->
-    <footer>
-        <div class="footer-content">
-            <a href="https://student-team-d82481z6.atlassian.net/jira/software/projects/PP1/boards/3/timeline?selectedIssue=PP1-28&atlOrigin=eyJpIjoiOTdlZTc1Mjg2MWIyNDVmYmI0NWRlZDRlZDdhZGNmNWEiLCJwIjoiaiJ9" id="footer-items">Jira Project</a>
-            <p>Contact us at <a href="mailto:info@datanexus.com.au">info@datanexus.com.au</a></p>
-            <p>&copy; 2024 Data Nexus. All rights reserved.</p>
-        </div>
-    </footer>
+    <?php include 'includes/footer.inc'; ?>
+    
 
 </body>
 </html>

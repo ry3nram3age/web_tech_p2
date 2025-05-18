@@ -2,7 +2,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "";
+$database = "data_nexus_db";
 
 $conn = mysqli_connect($host, $username, $password, $database)
 
