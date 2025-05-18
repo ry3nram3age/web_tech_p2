@@ -50,7 +50,7 @@
     </div>
 
     <!-- ========== APPLICATION FORM ========== -->
-    <form method="post" action="php/process_eoi.php" id="jobApplicationForm">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="jobApplicationForm">
 
         <!-- Step 1: Job Reference Number -->
         <fieldset data-step="1">
@@ -85,20 +85,11 @@
             </div>
 
             <!-- Gender radio buttons -->
-             <p>Gender</p>
-             <div class="gender-radio-group">
-                <div id="apply-input-male" class="apply-rdbuttons">
-                    <label for="male">Male</label>
-                    <input type="radio" name="gender" id="male" value="Male" required>
-                </div>
-                <div id="apply-input-female" class="apply-rdbuttons">
-                    <label for="female">Female</label>
-                    <input type="radio" name="gender" id="female" value="Female">
-                </div>
-                <div id="apply-input-other" class="apply-rdbuttons">
-                    <label for="other">Other</label>
-                    <input type="radio" name="gender" id="other" value="Other">
-                </div>
+            <div class="gender-radio-group">
+                    <label for="gender">Gender</label>
+                    Male<input type="radio" name="gender" id="male" value="Male" required>
+                    Female<input type="radio" name="gender" id="female" value="Female"required>
+                    Other<input type="radio" name="gender" id="other" value="Other"required>
             </div>
             
         </fieldset>
