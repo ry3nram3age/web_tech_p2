@@ -11,18 +11,19 @@
         <!-- Google Fonts for modern typography -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-        <!-- Summary of the About Us page content for SEO -->
-        <meta name="description" content="Meet the Data Nexus team. Learn about our mission, team members, and what makes us a unique cybersecurity company.">
+        <!-- Description -->
+        <meta name="description" content="">
 
-        <!-- Keywords for SEO focusing on company and team details -->
-        <meta name="keywords" content="Data Nexus team, about us, cybersecurity company, company mission, team members, fun facts, company background, HR, Human Resources">
+        <!-- Keywords -->
+        <meta name="keywords" content="Data Nexus, HR, Human Resources">
 
         <!-- USED CHATGPT TO ANALYSE THE REQUIREMENTS, TO MAKE SURE WE COVERED EVERYTHING NEEDED BY THE ASSIGHMENT-->
 
         <!-- Author of the page -->
         <meta name="author" content="Thomas Federico">
 
-        <title>HR Page</title> <!-- Temp Name -->
+        <!-- Temp Name -->
+        <title>Data Nexus - Human Resources Manegment</title>
     </head>
 
 <!-------- HEADER --------->
