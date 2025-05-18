@@ -6,6 +6,7 @@ include_once "settings.php";
 //Form validation
 
 // define variables and set to empty values
+$jobReferenceNumber = '';
 $first_name = '';
 $last_name = '';
 $email = '';
@@ -19,6 +20,7 @@ $phoneNumber = '';
 $requiredTechnicalList = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $jobReferenceNumber = test_input($_POST['jobReferenceNumber']);
   $first_name = test_input($_POST["firstname"]);
   $last_name = test_input($_POST["lastname"]);
   $email = test_input($_POST["email"]);
@@ -31,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $phoneNumber = test_input($_POST['phoneNumber']);
   $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
 }
-
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
