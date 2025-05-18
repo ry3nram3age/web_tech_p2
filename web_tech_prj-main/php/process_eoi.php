@@ -32,7 +32,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $postcode = test_input($_POST['postcode']);
   $phoneNumber = test_input($_POST['phoneNumber']);
   $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
+
+if (empty($jobReferenceNumber)) {
+    echo "Job Reference Number is required"
+elseif (empty($first_name)) {
+    echo "First Name is required"
+elseif (!preg_match("/^[A-Za-z]+$/", $first_name)) {
+    echo "First Name can only contain letters A–Z.";
 }
+elseif (!preg_match("/^.{1, 30}$/", $first_name)) {
+    echo "First name must be between 1 - 30 characters"
+}
+elseif (empty($last_name)) {
+    echo "Last Name is required"
+}
+elseif (!preg_match("/^[A-Za-z]+$/", $last_name)) {
+    echo "First Name can only contain letters A–Z.";
+}
+elseif (!preg_match("/^.{1, 30}$/", $last_name)) {
+echo "First name must be between 1 - 30 characters"
+}
+elseif (empty($dob)) {
+    echo "Date of Birth must be selected"
+}
+elseif (empty($gender)) {
+    echo "A Gender must be selected"
+}
+elseif (empty($address)) {
+    echo "An address needs to be entered"
+}
+}
+}
+  }
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
