@@ -32,6 +32,7 @@ CREATE TABLE `expressions_of_interest` (
   `job_reference_number` int(10) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
+  `gender` varchar(10) NOT NULL,
   `street_address` varchar(46) NOT NULL,
   `suburb` int(60) NOT NULL,
   `state` int(3) NOT NULL,
