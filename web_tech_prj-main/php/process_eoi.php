@@ -2,7 +2,6 @@
 
 //AUTHOR - Max Dinon, Ryan Neill
 //Security session id stuff so users cant access this page
-
 function test_input($data) 
 {
     $data = trim($data);
@@ -25,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $postcode = test_input($_POST['postcode']);
   $phoneNumber = test_input($_POST['phoneNumber']);
   $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
+  $otherSkills = test_input($_POST['otherSkills']);
 
   if (empty($jobReferenceNumber)) 
     {
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "You must enter your First Name";
         }
         elseif (!preg_match("/^[A-Za-z]+$/", $first_name)) {
-            echo "First Name can only contain letters A–Z.";
+            echo "First Name can only contain letters A-Z.";
         }
         elseif (!preg_match("/^.{1,30}$/", $first_name)) {
             echo "First name must be between 1 - 30 characters";
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "You must enter your Last Name";
         }
         elseif (!preg_match("/^[A-Za-z]+$/", $last_name)) {
-            echo "Last Name can only contain letters A–Z.";
+            echo "Last Name can only contain letters A-Z.";
         }
         elseif (!preg_match("/^.{1,30}$/", $last_name)) {
             echo "Last Name must be between 1 - 30 characters";
@@ -83,7 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "Postcode must be between 1 - 4 digits";
         }
         else {
-            echo "Done!";
+            //Max's form submission code to the EOI db
+            $query = "INSERT INTO `expressions_of_interest`(`job_reference_number`, `first_name`, `last_name`,`gender`, `street_address`, `suburb`, `state`, `postcode`, `email address`, `phone_number`, `skills`, `other_skills`) VALUES $jobReferenceNumber, $first_name, $last_name, $gender, $address, $suburb, $state, $postcode, $email, $phoneNumber, $requiredTechnicalList, $otherSkills)";
+            mysqli_query($conn, $query);
+
         }
     }
 
