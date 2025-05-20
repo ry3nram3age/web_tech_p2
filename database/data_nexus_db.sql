@@ -68,8 +68,8 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `position`, `company`, `location`, `salary`, `id`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
-(1, 'Cybersecurity Specialist', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
-(2, 'Investigation Team Leader', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
+(1, 'Cybersecurity Specialist', 'DataNexus\s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
+(2, 'Investigation Team Leader', 'DataNexus\s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
