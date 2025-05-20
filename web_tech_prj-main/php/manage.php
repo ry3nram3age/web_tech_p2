@@ -44,7 +44,7 @@
 </html>
 
 
-<!--------- TASKS AND INFO FOR ME ---------
+<!--------- TASKS AND INFO FOR ME
 
 5. HR manager queries (manage.php)
 Create a web page manage.php that allows a manager to make the following queries of
@@ -63,5 +63,15 @@ username and a password rule, and store this information in a table.
     • Control access to manage.php by checking username and password.
     • Have access to the web site disabled for user a period of time on, say, three or more
       invalid login attempts.
+ -->
+     
+<?php
 
--!>
+    // Max's Code
+
+                $sql = "SELECT * FROM 'expressions_of_interest'";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+
+            );
+    
