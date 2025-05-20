@@ -1,6 +1,6 @@
 <?php
 
-//AUTHOR - Max Dinon, 
+//AUTHOR - Max Dinon, Ryan Neill
 //Security session id stuff so users cant access this page
 
 function test_input($data) 
