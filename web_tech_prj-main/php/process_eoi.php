@@ -83,10 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "Postcode must be between 1 - 4 digits";
         }
         else {
-            //Max's form submission code to the EOI db
+            //Max's DB table entry code code to the EOI table
             $query = "INSERT INTO `expressions_of_interest`(`job_reference_number`, `first_name`, `last_name`,`gender`, `street_address`, `suburb`, `state`, `postcode`, `email address`, `phone_number`, `skills`, `other_skills`) VALUES $jobReferenceNumber, $first_name, $last_name, $gender, $address, $suburb, $state, $postcode, $email, $phoneNumber, $requiredTechnicalList, $otherSkills)";
             mysqli_query($conn, $query);
-
         }
     }
 
