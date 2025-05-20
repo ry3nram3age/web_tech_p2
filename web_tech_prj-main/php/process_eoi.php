@@ -1,5 +1,5 @@
 <?php
-
+require_once 'settings.php';
 //AUTHOR - Max Dinon, Ryan Neill
 //Security session id stuff so users cant access this page
 function test_input($data) 
@@ -12,6 +12,7 @@ function test_input($data)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
+    //Max's Eoi Form 
   $jobReferenceNumber = test_input($_POST['jobReferenceNumber']);
   $first_name = test_input($_POST["firstName"]);
   $last_name = test_input($_POST["lastName"]);
@@ -25,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $phoneNumber = test_input($_POST['phoneNumber']);
   $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
   $otherSkills = test_input($_POST['otherSkills']);
-
+//Ryan's Eoi Validation
   if (empty($jobReferenceNumber)) 
     {
         echo "You must enter your Job Reference Number associated with the position";
@@ -84,8 +85,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
         else {
             //Max's DB table entry code code to the EOI table
-            $query = "INSERT INTO `expressions_of_interest`(`job_reference_number`, `first_name`, `last_name`,`gender`, `street_address`, `suburb`, `state`, `postcode`, `email address`, `phone_number`, `skills`, `other_skills`) VALUES $jobReferenceNumber, $first_name, $last_name, $gender, $address, $suburb, $state, $postcode, $email, $phoneNumber, $requiredTechnicalList, $otherSkills)";
-            mysqli_query($conn, $query);
+            $sql = "INSERT INTO expressions_of_interest
+                    (job_reference_number, first_name, last_name, gender, street_address,
+                    suburb, state, postcode, email_address, phone_number, skills, other_skills)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "sssssssissss",
+                $jobReferenceNumber,
+                $first_name,
+                $last_name,
+                $gender,
+                $address,
+                $suburb,
+                $state,
+                $postcode,
+                $email,
+                $phoneNumber,
+                $requiredTechnicalList,
+                $otherSkills
+            );
+            $stmt->execute();
         }
     }
 
