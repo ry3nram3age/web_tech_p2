@@ -27,7 +27,7 @@
 <body>
 
     <!-- ================= HEADER SECTION ================= -->
-     <?php include 'includes/header.inc'; ?>
+     <?php include 'nav.inc'; ?>
     
     <!-- ================= MAIN CONTENT SECTION ================= -->
     <main id="about-main">
@@ -86,6 +86,25 @@
                 <dd>Thoman Federicko</dd>
             <dt>Apply CSS</dt>
                 <dd>Ryan Neill</dd>
+            <dt>Project 2</dt>
+                <dd>Team effort (Work done for part 2 of the project)</dd>
+            <dt>Data Base: Creating, linking, etc</dt>
+                <dd>Created by Ryan, Edited and additions made by Max</dt>
+            <dt>eoi process</dt>
+                <dd>Max dinon</dd>
+            <dt>eoi process: validation</dt>
+                <dd>Ryan Neil</dd>
+            <dt>Job's Page:Database, loops, etc</dt>
+                <dd>Made by Max and Ashley<dd>
+            <dt>PowerPoint Presentation: Images, Scripts, Powerpoint design, etc</dt>
+                <dd>Ashley Jean</dd>
+            <dt>Settings Page</dt>
+                <dd>Ryan Neil</dd>
+            <dt>HR page</dt>
+                <dd>Done by Ryan Neil, minor edits by Thomas Federicko</dd>
+            <dt>About Page adjustments</dt>
+                <dd>Ashley Jean</dd>
+        
         </dl>
 
         <!-- Where each team member is from -->
@@ -261,7 +280,7 @@
 </main>
 
     <!-- ================= FOOTER ================= -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
     
 </body>
 </html>

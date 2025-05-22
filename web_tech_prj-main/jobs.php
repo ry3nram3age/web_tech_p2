@@ -29,7 +29,10 @@
 
     <!-- ========== HEADER SECTION ========== -->
     <!-- Contains the site logo and main navigation -->
-    <?php include 'includes/header.inc'; ?>
+    <?php 
+    include 'nav.inc';
+    require_once 'settings.php'; 
+    ?>
     
     <!-- ========== MAIN SECTION: JOB LISTINGS ========== -->
     <main>
@@ -50,134 +53,95 @@
             </aside>
 
             <!-- ========== JOB 1: CYBERSECURITY SPECIALIST ========== -->
-            <section id="cybersecurity_specialist_position">
-                <h2 id="cybersecurity_specialist">Cybersecurity Specialist</h2>
 
-                <!-- Overview Info -->
-                <h3>Brief Description</h3>
-                <ul>
-                    <li>Job Title: Cybersecurity Specialist</li>
-                    <li>Company: DataNexus's CyberSec</li>
-                    <li>Location: Melbourne HQ</li>
-                    <li>Salary Range: $90,000 - $130,000 per year (based on experience)</li>
-                    <li>Job Reference ID: 00001</li>
-                </ul>
+            
+                <?php
+                function put_in_list($str) {
+                                        echo "<ul>";
+                    $strArr = [];
+                    $strArr = explode(". ", $str);
+                    foreach ($strArr as $sentence) {
+                        echo "<li>" . $sentence . "</li>";
+                    }
+                    echo "</ul>";
 
-                <!-- Role Summary -->
-                <h3>Job Description:</h3>
-                <p>The Cybersecurity Specialist at DataNexus's CyberSec will play a key role in safeguarding our clients' digital assets by identifying vulnerabilities, implementing security protocols, and responding to incidents. You will work with advanced technologies to ensure robust security across systems and networks.</p>
+                }
 
-                <!-- Responsibilities -->
-                <h3>Key Job Responsibilities:</h3>
-                <ul>
-                    <li>Perform vulnerability assessments and penetration testing.</li>
-                    <li>Lead incident response and security breach resolution.</li>
-                    <li>Design and implement secure networks and systems.</li>
-                    <li>Monitor security alerts and proactively defend against cyber threats.</li>
-                    <li>Conduct security audits and provide recommendations for improvements.</li>
-                </ul>
+                class Jobs {
+                   public $job_id;
+                   public $position;
+                   public $company;
+                   public $location;
+                   public $salary;
+                   public $id;
+                   public $description;
+                   public $responsibilities;
+                   public $essential_qualifications;
+                   public $preferable_qualifications;
+                   public $languages;
+                } 
+                $sql = "SELECT * FROM jobs";
+                $result = mysqli_query($conn, $sql);
 
-                <!-- Required Skills -->
-                <h3>Qualifications Required:</h3>
-                <h4>Essential:</h4>
-                <ul>
-                    <li>3+ years of hands-on cybersecurity experience.</li>
-                    <li>Strong knowledge of network protocols, firewalls, and security tools.</li>
-                    <li>Certifications: CISSP, CEH, CompTIA Security+, or equivalent.</li>
-                    <li>Experience with security platforms like Splunk, Nessus, or Wireshark.</li>
-                    <li>Excellent problem-solving and communication skills.</li>
-                </ul>
+                $jobs = [];
 
-                <h4>Preferable:</h4>
-                <ul>
-                    <li>Experience in a Security Operations Center (SOC).</li>
-                    <li>Advanced certifications (e.g., CISM, CCSP, OSCP).</li>
-                    <li>Programming knowledge (Python, PowerShell, Bash).</li>
-                    <li>Experience with cloud security (AWS, Azure, GCP).</li>
-                </ul>
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $job = new Jobs();
 
-                <!-- Language Requirements -->
-                <h4>Languages Required:</h4>
-                <ul>
-                    <li>English (fluent, written and spoken).</li>
-                    <li>Additional languages (Spanish, Mandarin) are a plus.</li>
-                </ul>
+                        // Manually assign each known column to the object
+                        $job->id = $row['id'];
+                        $job->position = $row['position'];
+                        $job->company = $row['company'];
+                        $job->location = $row['location'];
+                        $job->salary = $row['salary'];
+                        $job->description = $row['description'];
+                        $job->responsibilities = $row['responsibilities'];
+                        $job->essential_qualifications = $row['essential_qualifications'];
+                        $job->preferable_qualifications = $row['preferable_qualifications'];
+                        $job->languages = $row['languages'];
 
-                <!-- Apply Now Button -->
-                <a href="apply.html" id="jobs-apply1">APPLY</a>
-            </section>
+                        $jobs[] = $job;
+                    }
+                }
 
-            <!-- ========== JOB 2: INVESTIGATION TEAM LEADER ========== -->
-            <section id="investigation_team_leader_position">
-                <h2 id="investigation_team_leader">Investigation Team Leader</h2>
-
-                <!-- ChatGPT-assisted content generation -->
-                <!-- Prompt used:
-                     Can you write a brief description for an Investigation Leader position within DataNexus's CyberSec small company.
-                     Include job description, salary range, key responsibilities, essential and preferable qualifications, and required languages.
-                -->
-
-                <!-- Overview Info -->
-                <h3>Brief Description</h3>
-                <ul>
-                    <li>Job Title: Investigation Team Leader</li>
-                    <li>Company: DataNexus's CyberSec</li>
-                    <li>Location: Melbourne HQ</li>
-                    <li>Salary Range: $95,000 - $130,000 per year (based on experience)</li>
-                    <li>Job Reference ID: 00002</li>
-                </ul>
-
-                <!-- Role Summary -->
-                <h3>Job Description:</h3>
-                <p>The Investigation Leader will be responsible for overseeing cybersecurity investigations related to incident response, digital forensics, and threat analysis. They will lead a team to identify and mitigate cybersecurity threats while ensuring the integrity of digital evidence and maintaining a high standard of investigative practices.</p>
-
-                <!-- Responsibilities -->
-                <h3>Key Job Responsibilities:</h3>
-                <ul>
-                    <li>Lead and manage cybersecurity investigations.</li>
-                    <li>Collaborate with internal cybersecurity teams.</li>
-                    <li>Analyze and document findings.</li>
-                    <li>Ensure digital evidence complies with legal standards.</li>
-                    <li>Mentor junior investigators.</li>
-                    <li>Stay updated on current trends.</li>
-                </ul>
-
-                <!-- Required Skills -->
-                <h3>Qualifications Required:</h3>
-                <h4>Essential:</h4>
-                <ul>
-                    <li>Bachelor's degree in Cybersecurity, IT, or related field.</li>
-                    <li>5+ years experience in cybersecurity investigations.</li>
-                    <li>Proven leadership experience.</li>
-                    <li>Knowledge of cybersecurity frameworks/tools.</li>
-                    <li>Strong analytical and communication skills.</li>
-                </ul>
-
-                <h4>Preferable:</h4>
-                <ul>
-                    <li>Master's degree in Cybersecurity or related field.</li>
-                    <li>Relevant certifications (e.g. CEH, CISSP, CCFP).</li>
-                    <li>Experience with cloud security.</li>
-                    <li>Familiarity with malware analysis.</li>
-                </ul>
-
-                <!-- Language Requirements -->
-                <h3>Languages Required:</h3>
-                <ul>
-                    <li>English (fluent, both written and spoken).</li>
-                    <li>Additional languages (Spanish, French, Mandarin) are a plus.</li>
-                </ul>
-
-                <!-- Apply Now Button -->
-                <a href="apply.html" id="jobs-apply2">APPLY</a>
-            </section>
-        </section>
+                // Output using while loop (no foreach)
+                $i = 0;
+                while ($i < count($jobs)) {
+                    $job = $jobs[$i];
+                    //    Dynamic Job Position Info page
+                    echo "<section id='investigation_team_leader_position'>";
+                    echo "<h2>" . $job->position ."</h2>";
+                    echo "<h3>Brief Description</h3>";
+                    echo "<ul>";
+                    echo "<li>Job Title: " . $job->position . "</li>";
+                    echo "<li>Company: " . $job->company . "</li>";
+                    echo "<li>Location: " . $job->location . "</li>";
+                    echo "<li>Salary Range: " . $job->salary . "</li>";
+                    echo "<li>Job Reference ID: " . $job->id . "</li>";
+                    echo "</ul>";
+                    echo "<h3>Job Description:</h3>";
+                    echo "<p>" . $job->description . "</p>";
+                    echo "<h3>Key Job Responsibilities:</h3>";
+                    put_in_list($job->responsibilities);
+                    echo "<h3>Qualifications Required:</h3>";
+                    echo "<h4>Essential:</h4>";
+                    put_in_list($job->essential_qualifications);
+                    echo "<h4>Preferable:</h4>";
+                    put_in_list($job->preferable_qualifications);
+                    echo "<h4>Languages Required:</h4>";
+                    put_in_list($job->languages);
+                    echo "<a href='apply.php' id='jobs-apply2'>APPLY</a>";
+                    echo "</section>";
+                    $i++;
+                }
+               
+                ?>
     </main>
 
-    <!-- ========== FOOTER SECTION ========== -->
-    <!-- Contains Jira link and contact info -->
-    <?php include 'includes/footer.inc'; ?>
-    
-
+<?php 
+include 'footer.inc';
+require_once 'settings.php';  
+?>
 </body>
 </html>
