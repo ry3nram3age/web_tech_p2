@@ -27,7 +27,7 @@
     </head>
 
 <!-------- HEADER --------->
-<?php include 'includes/header.inc'; ?>
+<?php include 'nav.inc'; ?>
 <!------------------------->
 
 <!---------- BODY --------->
@@ -68,7 +68,7 @@
 <!------------------------->
 
 <!-------- FOOTER --------->
-<?php include 'includes/footer.inc'; ?>
+<?php include 'footer.inc'; ?>
 <!------------------------->
 </html>
 
