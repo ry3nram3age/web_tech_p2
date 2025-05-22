@@ -39,6 +39,7 @@
     <table>
       <thead>
         <tr>
+<!-- row 1 -->
           <th>EOI ID</th>
           <th>Job Ref</th>
           <th>Applicant Name</th>
@@ -49,6 +50,7 @@
       </thead>
       <tbody>
         <tr>
+<!-- row 2 -->
           <td>1001</td>
           <td>00001</td>
           <td>Max Dinon</td>
