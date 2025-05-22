@@ -83,7 +83,7 @@
                 <label for="dateOfBirth">Date of Birth</label> 
                 <input type="date" name="dateOfBirth" id="dateOfBirth" value="">
             </div>
-
+            
             <!-- Gender radio buttons -->
             <div class="gender-radio-group">
                     <label for="gender">Gender</label>
@@ -158,12 +158,12 @@
 
             <p>
                 <label for="requiredTechnicalList">Required Technical Skills</label>
-                <textarea type="text" name="requiredTechnicalList" id="requiredTechnicalList" placeholder="Please enter your technical skills here"></textarea>
+                <textarea name="requiredTechnicalList" id="requiredTechnicalList" placeholder="Please enter your technical skills here"></textarea>
             </p>
 
             <p>
                 <label for="otherSkills">Other Skills</label>
-                <textarea type="text" name="otherSkills" id="otherSkills" placeholder="Please enter any other relevant skills here"></textarea>
+                <textarea name="otherSkills" id="otherSkills" placeholder="Please enter any other relevant skills here"></textarea>
             </p>
         </fieldset>
 

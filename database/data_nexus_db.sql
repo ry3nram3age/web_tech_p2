@@ -32,6 +32,7 @@ CREATE TABLE `expressions_of_interest` (
   `job_reference_number` int(10) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
+  `gender` varchar(10) NOT NULL,
   `street_address` varchar(46) NOT NULL,
   `suburb` int(60) NOT NULL,
   `state` int(3) NOT NULL,
@@ -67,8 +68,8 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `position`, `company`, `location`, `salary`, `id`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
-(1, 'Cybersecurity Specialist', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
-(2, 'Investigation Team Leader', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
+(1, 'Cybersecurity Specialist', 'DataNexus\s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
+(2, 'Investigation Team Leader', 'DataNexus\s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
