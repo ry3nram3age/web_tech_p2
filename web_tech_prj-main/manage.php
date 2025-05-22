@@ -25,23 +25,14 @@
             color: #fff;
         }
 
-        .hr-manage-panel {
-            background-color: #111;
-            border: 1px solid #ff6600;
-            border-radius: 10px;
-            padding: 40px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 50px auto;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
-        }
+  
 
-        .hr-manage-panel fieldset {
+       xfieldset {
             border: none;
             padding: 0;
         }
 
-        .hr-manage-panel legend {
+        legend {
             font-size: 1.5rem;
             color: #ff6600;
             margin-bottom: 25px;
@@ -57,8 +48,7 @@
             font-weight: 500;
         }
 
-        .hr-manage-panel input,
-        .hr-manage-panel select {
+        input, select {
             width: 100%;
             padding: 12px 16px;
             background-color: #222;
@@ -68,7 +58,7 @@
             font-size: 1rem;
         }
 
-        .hr-manage-panel .button-group {
+       .button-group {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -76,7 +66,7 @@
             margin-top: 35px;
         }
 
-        .hr-manage-panel button {
+        button {
             flex: 1 1 30%;
             padding: 12px 0;
             background-color: #ff6600;
@@ -89,16 +79,16 @@
             transition: background-color 0.3s ease;
         }
 
-        .hr-manage-panel button:hover {
+        button:hover {
             background-color: #e05200;
         }
     </style>
 </head>
 <body>
-    <?php include 'header.inc'; ?>
+    <?php include 'nav.inc'; ?>
 
     <main>
-        <h1 class="section-title">Manage Job Applications</h1>
+
 
         <section class="hr-manage-panel">
             <form action="manage.php" method="POST">
