@@ -29,7 +29,7 @@
 
     <!-- ========== HEADER SECTION ========== -->
     <!-- Contains the site logo and main navigation -->
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'nav.inc'; ?>
     
     <!-- ========== MAIN SECTION: JOB LISTINGS ========== -->
     <main>
@@ -176,7 +176,7 @@
 
     <!-- ========== FOOTER SECTION ========== -->
     <!-- Contains Jira link and contact info -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
     
 
 </body>

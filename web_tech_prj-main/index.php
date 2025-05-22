@@ -18,7 +18,7 @@
     <meta name="keywords" content="Data Nexus, cybersecurity, tech careers, homepage, IT company, future jobs">
 
     <!-- Author of the HTML document -->
-    <meta name="author" content="Ryan Neill">
+    <meta name="author" content="Ryan Neill, Max Dinon">
 
     <!-- Statement on tool usage for educational transparency -->
     <!-- USED CHATGPT TO ANALYSE THE REQUIREMENTS, TO MAKE SURE WE COVERED EVERYTHING NEEDED BY THE ASSIGNMENT -->
@@ -30,7 +30,7 @@
 
     <!-- =================== HEADER SECTION =================== -->
     <!-- Contains logo and navigation links -->
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'nav.inc'; ?>
     
 
     <!-- =================== MAIN CONTENT =================== -->
@@ -75,7 +75,7 @@
 
     <!-- =================== FOOTER SECTION =================== -->
     <!-- Contact info and Jira project link -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
     
 
 </body>
