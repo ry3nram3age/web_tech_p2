@@ -41,15 +41,19 @@
              <div class="radioBawtoens">
                 <div id="option" class="radio">
                     <label for="listAllEOIs">List All EOIs</label>
-                    <input type="radio" name="option" id="listAllEOIs" value="Male" required>
+                    <input type="radio" name="option" id="listAllEOIs" value="listAllEOIs">
                 </div>
                 <div id="option" class="radio">
                     <label for="listAllEOIsPosition">List All EOIs by Position</label>
-                    <input type="radio" name="option" id="listAllEOIsPosition" value="Female">
+                    <input type="radio" name="option" id="listAllEOIsPosition" value="listAllEOIsPosition">
                 </div>
                 <div id="option" class="radio">
                     <label for="listAllEOIsName">List All EOIs by Name</label>
-                    <input type="radio" name="option" id="listAllEOIsName" value="Other">
+                    <input type="radio" name="option" id="listAllEOIsName" value="listAllEOIsName">
+                </div>
+                <div id="option" class="radio">
+                    <label for="deleteEOIs">Delete EOIs</label>
+                    <input type="radio" name="option" id="deletEOIs" value="deletEOIs">
                 </div>
             </div>
 
