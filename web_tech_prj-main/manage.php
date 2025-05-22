@@ -95,7 +95,7 @@
     </style>
 </head>
 <body>
-    <?php include 'header.inc'; ?>
+    <?php include 'nav.inc'; ?>
 
     <main>
         <h1 class="section-title">Manage Job Applications</h1>
@@ -135,3 +135,26 @@
     <?php include 'footer.inc'; ?>
 </body>
 </html>
+
+
+<!--------- TASKS AND INFO FOR ME ---------
+
+5. HR manager queries (manage.php)
+Create a web page manage.php that allows a manager to make the following queries of
+the eoi table and returns a web page with the appropriate results.
+    • List all EOIs.
+    • List all EOIs for a particular position (given a job reference number).
+    • List all EOIs for a particular applicant given their first name, last name or both.
+    • Delete all EOIs with a specified job reference number
+    • Change the Status of an EOI.
+    • Provide the manager with the ability to select the field on which to sort the order in
+
+which the EOI records are displayed.
+    • Create a manager registration page with server side validation requiring unique
+
+username and a password rule, and store this information in a table.
+    • Control access to manage.php by checking username and password.
+    • Have access to the web site disabled for user a period of time on, say, three or more
+      invalid login attempts.
+
+-!>
