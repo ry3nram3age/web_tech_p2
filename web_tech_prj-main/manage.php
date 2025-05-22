@@ -66,6 +66,13 @@
       </tbody>
     </table>
   </div>
+
+  <form method="GET" action="jobs.php">
+    <label>Search Car Model:</label>
+    <input type="text" name="job" required>
+    <input type="submit" value="Search">
+  </form>
+
 </body>
 <!------------------------->
 
