@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +10,8 @@
   <meta name="keywords" content="Data Nexus, HR, manage applications, EOIs">
   <meta name="author" content="Thomas Federico">
   <title>Data Nexus - HR Management</title>
+
+
   <style>
     body {
       margin: 0;
@@ -153,7 +150,7 @@
     margin-left: 6px;
     cursor: pointer;
 }
-    </style>
+  </style>
 </head>
 
 <body>
@@ -187,14 +184,16 @@
           </select>
 
                     <div class="button-group">
-                        <button type="submit" name="action" value="list">List EOIs</button>
+                        <button type="submit" name="action" value="list">List EOIs</button> 
                         <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
                         <button type="submit" name="action" value="update_status">Update EOI Status</button>
                     </div>
 
                     
-                </fieldset>
+            </fieldset>
             </form>
+
+
 
 
            
