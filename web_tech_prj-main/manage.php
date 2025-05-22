@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,14 +84,82 @@
       transition: background-color 0.3s ease;
     }
 
-    button:hover {
-      background-color: #e05200;
-    }
-  </style>
+        button:hover {
+            background-color: #e05200;
+        }
+        .eoi-results-table {
+    margin-top: 20px;
+    background-color: #111;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.eoi-results-table h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: center;
+}
+
+.styled-table th {
+    background-color: #ff6600;
+    color: white;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.btn-view {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-approve {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.btn-reject {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+    </style>
 </head>
 
 <body>
-  <?php include 'nav.inc'; ?>
+
+
+    <?php include 'nav.inc'; ?>
 
   <main>
 
@@ -113,18 +186,26 @@
             <option value="status">Status</option>
           </select>
 
-          <div class="button-group">
-            <button type="submit" name="action" value="list">List EOIs</button>
-            <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
-            <button type="submit" name="action" value="update_status">Update EOI Status</button>
-          </div>
-        </fieldset>
-      </form>
-    </section>
-  </main>
+                    <div class="button-group">
+                        <button type="submit" name="action" value="list">List EOIs</button>
+                        <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
+                        <button type="submit" name="action" value="update_status">Update EOI Status</button>
+                    </div>
 
-  <?php include 'footer.inc'; ?>
+                    
+                </fieldset>
+            </form>
+
+
+           
+    
+    </main>
+
+    <?php include 'footer.inc'; ?>
+
+
 </body>
+
 
 </html>
 

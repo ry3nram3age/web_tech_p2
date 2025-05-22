@@ -141,7 +141,6 @@
 
 <?php 
 include 'footer.inc';
-require_once 'settings.php';  
 ?>
 </body>
 </html>
