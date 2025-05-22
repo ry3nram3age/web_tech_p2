@@ -1204,3 +1204,24 @@ img {
           }
 
       }
+
+      .query-panel input {
+        padding: 10px;
+        width: 100%;
+      }
+
+      /* Styles scoped only to manage.php panel */
+.query-panel input,
+.query-panel select,
+.query-panel label,
+.query-panel button {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.query-panel .button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
