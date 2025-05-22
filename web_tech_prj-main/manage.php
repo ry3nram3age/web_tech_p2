@@ -195,7 +195,65 @@
                 </fieldset>
             </form>
 
-
+            <section class="eoi-results-table">
+  <h2>Manage Job Applications</h2>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>EOI ID</th>
+        <th>Job Ref</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1001</td>
+        <td>00001</td>
+        <td>Ryan</td>
+        <td>Smith</td>
+        <td>ryan@example.com</td>
+        <td>0400123456</td>
+        <td>New</td>
+        <td>
+          <button class="btn-approve">Approve</button>
+          <button class="btn-reject">Reject</button>
+        </td>
+      </tr>
+      <tr>
+        <td>1002</td>
+        <td>00002</td>
+        <td>Jess</td>
+        <td>Brown</td>
+        <td>jess@example.com</td>
+        <td>0411222333</td>
+        <td>Pending</td>
+        <td>
+          <button class="btn-approve">Approve</button>
+          <button class="btn-reject">Reject</button>
+        </td>
+      </tr>
+      <tr>
+        <td>1003</td>
+        <td>00001</td>
+        <td>Ali</td>
+        <td>Khan</td>
+        <td>ali@example.com</td>
+        <td>0433445566</td>
+        <td>Rejected</td>
+        <td>
+          <button class="btn-approve">Approve</button>
+          <button class="btn-reject">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+</div>
            
     
     </main>
