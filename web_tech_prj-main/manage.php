@@ -33,33 +33,39 @@
 
 <!---------- BODY --------->
     <body>
-        <h1>Human Resources Manegment Quearies<h1>
-        <b>Content Goes Here (Placeholder)</b>
-<!-- Checkbox Options: List All EOIS, List EOIS for A Perticular Position, List all EOIs for a particular applicant given their first name, last name or both. -->
-<!-- Option to delete all eois, change status of eois. -->
- <p>Option</p>
-             <div class="radioBawtoens">
-                <div id="option" class="radio">
-                    <label for="listAllEOIs">List All EOIs</label>
-                    <input type="radio" name="option" id="listAllEOIs" value="listAllEOIs">
-                </div>
-                <div id="option" class="radio">
-                    <label for="listAllEOIsPosition">List All EOIs by Position</label>
-                    <input type="radio" name="option" id="listAllEOIsPosition" value="listAllEOIsPosition">
-                </div>
-                <div id="option" class="radio">
-                    <label for="listAllEOIsName">List All EOIs by Name</label>
-                    <input type="radio" name="option" id="listAllEOIsName" value="listAllEOIsName">
-                </div>
-                <div id="option" class="radio">
-                    <label for="deleteEOIs">Delete EOIs</label>
-                    <input type="radio" name="option" id="deletEOIs" value="deletEOIs">
-                </div>
-            </div>
 
-        <b>Job Reference Number</b>
-        <b>List of EOIs</b>
-    </body>
+  <h2>Manage Job Applications</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>EOI ID</th>
+          <th>Job Ref</th>
+          <th>Applicant Name</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1001</td>
+          <td>00001</td>
+          <td>Max Dinon</td>
+          <td>max@example.com</td>
+          <td>New</td>
+          <td class="actions">
+            <button class="view-btn">View</button>
+            <button class="approve-btn">Approve</button>
+            <button class="reject-btn">Reject</button>
+          </td>
+        </tr>
+        <!-- More rows will be generated in PHP -->
+      </tbody>
+    </table>
+  </div>
+</body>
 <!------------------------->
 
 <!-------- FOOTER --------->
@@ -88,4 +94,4 @@ username and a password rule, and store this information in a table.
     • Have access to the web site disabled for user a period of time on, say, three or more
       invalid login attempts.
 
--!>
+-->
