@@ -57,8 +57,8 @@ CREATE TABLE `jobs` (
   `salary` varchar(40) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL,
   `responsibilities` varchar(1000) DEFAULT NULL,
-  `qualifications` varchar(1000) DEFAULT NULL,
-  `experience` varchar(1000) DEFAULT NULL,
+  `essential_qualifications` varchar(1000) DEFAULT NULL,
+  `preferable_qualifications` varchar(1000) DEFAULT NULL,
   `languages` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
