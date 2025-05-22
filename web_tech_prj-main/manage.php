@@ -28,11 +28,10 @@
 
 <!-------- HEADER --------->
 <?php include 'includes/header.inc'; ?>
-
 <!------------------------->
 
 <!---------- BODY --------->
-    <body>
+<body>
 
   <h2>Manage Job Applications</h2>
 
