@@ -31,7 +31,7 @@
 <body>
 
 <!-- ========== HEADER ========== -->
-<?php include 'includes/header.inc'; ?>
+<?php include 'nav.inc'; ?>
     
 
 <!-- ========== MAIN CONTENT ========== -->
@@ -174,6 +174,6 @@
 </main>
 
 <!-- ========== FOOTER ========== -->
-<?php include 'includes/footer.inc'; ?>
+<?php include 'footer.inc'; ?>
 </body>
 </html>
