@@ -57,8 +57,8 @@ CREATE TABLE `jobs` (
   `salary` varchar(40) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL,
   `responsibilities` varchar(1000) DEFAULT NULL,
-  `qualifications` varchar(1000) DEFAULT NULL,
-  `experience` varchar(1000) DEFAULT NULL,
+  `essential_qualifications` varchar(1000) DEFAULT NULL,
+  `preferable_qualifications` varchar(1000) DEFAULT NULL,
   `languages` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,9 +66,9 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
-(1, 'Cybersecurity Specialist', 'DataNexus\s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
-(2, 'Investigation Team Leader', 'DataNexus\s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `jobs` ( `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `essential_qualifications`, `preferable_qualifications`, `languages`) VALUES
+('Cybersecurity Specialist', 'DataNexus\s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', NULL, NULL, NULL, NULL, NULL),
+('Investigation Team Leader', 'DataNexus\s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -100,7 +100,7 @@ ALTER TABLE `expressions_of_interest`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

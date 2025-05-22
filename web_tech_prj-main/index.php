@@ -46,7 +46,7 @@
         <section id="webpage-navigation-info">
 
           <!-- Jobs Section Box -->
-          <a href="jobs.html">
+          <a href="jobs.php">
             <div class="home-info-sections box-fade-in box-delay-1">
               <h2>Jobs</h2>
               <p>Explore exciting cybersecurity job opportunities across various roles and specialties.
@@ -55,7 +55,7 @@
           </a>
 
           <!-- Apply Section Box -->
-          <a href="apply.html">
+          <a href="apply.php">
             <div class="home-info-sections box-fade-in box-delay-2">
               <h2>Apply</h2>
               <p>We've simplified every step so you can focus on showcasing your strengths. Join a company that values clarity, communication, and candidates who are ready to grow.</p>
@@ -63,7 +63,7 @@
           </a>
 
           <!-- About Section Box -->
-          <a href="about.html">
+          <a href="about.php">
             <div class="home-info-sections box-fade-in box-delay-3">
               <h2>About</h2>
               <p>We're a passionate group of tech enthusiasts on a mission to empower the next generation of cybersecurity professionals through innovation and mentorship.</p>
