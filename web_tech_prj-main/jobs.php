@@ -29,7 +29,10 @@
 
     <!-- ========== HEADER SECTION ========== -->
     <!-- Contains the site logo and main navigation -->
-    <?php include 'nav.inc'; ?>
+    <?php 
+    include 'nav.inc';
+    require_once 'settings.php'; 
+    ?>
     
     <!-- ========== MAIN SECTION: JOB LISTINGS ========== -->
     <main>
@@ -50,18 +53,75 @@
             </aside>
 
             <!-- ========== JOB 1: CYBERSECURITY SPECIALIST ========== -->
-            <section id="cybersecurity_specialist_position">
-                <h2 id="cybersecurity_specialist">Cybersecurity Specialist</h2>
 
-                <!-- Overview Info -->
-                <h3>Brief Description</h3>
-                <ul>
-                    <li>Job Title: Cybersecurity Specialist</li>
-                    <li>Company: DataNexus's CyberSec</li>
-                    <li>Location: Melbourne HQ</li>
-                    <li>Salary Range: $90,000 - $130,000 per year (based on experience)</li>
-                    <li>Job Reference ID: 00001</li>
-                </ul>
+            <section id="cybersecurity_specialist_position">
+                <?php
+                
+                class Jobs {
+                   public $job_id;
+                   public $position;
+                   public $company;
+                   public $location;
+                   public $salary;
+                   public $id;
+                   public $description;
+                   public $responsibilities;
+                   public $qualifications;
+                   public $experience;
+                   public $languages;
+                } 
+                $sql = "SELECT * FROM jobs";
+                $result = mysqli_query($conn, $sql);
+
+                $jobs = [];
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $job = new Jobs();
+
+                        // Manually assign each known column to the object
+                        $job->id = $row['id'];
+                        $job->position = $row['position'];
+                        $job->company = $row['company'];
+                        $job->location = $row['location'];
+                        $job->salary = $row['salary'];
+                        $job->description = $row['description'];
+                        $job->responsibilities = $row['responsibilities'];
+                        $job->qualifications = $row['qualifications'];
+                        $job->experience = $row['experience'];
+                        $job->languages = $row['languages'];
+
+                        $jobs[] = $job;
+                    }
+                }
+
+                // Output using while loop (no foreach)
+                $i = 0;
+                while ($i < count($jobs)) {
+                    $job = $jobs[$i];
+                    //                <!-- Overview Info -->
+                    echo "<h2>Cybersecurity Specialist</h2>";
+                    echo "<h3>Brief Description</h3>";
+                    echo "<ul>";
+                    echo "<li>Job Title: " . $job->position . "</li>";
+                    echo "<li>Company: " . $job->company . "</li>";
+                    echo "<li>Location: " . $job->location . "</li>";
+                    echo "<li>Salary Range: " . $job->salary . "</li>";
+                    echo "<li>Job Reference ID: " . $job->id . "</li>";
+                    echo "</ul>";
+                    echo "<br>";
+                    echo "<h3>Job Description:</h3>";
+                    echo "<p>" . $job->description . "</p>";
+                    echo "<h3>Key Job Responsibilities:</h3>";
+                    echo "<ul>";
+                    $i++;
+                }
+                
+                ?>
+                
+
+
+
 
                 <!-- Role Summary -->
                 <h3>Job Description:</h3>
@@ -114,7 +174,9 @@
                 <!-- ChatGPT-assisted content generation -->
                 <!-- Prompt used:
                      Can you write a brief description for an Investigation Leader position within DataNexus's CyberSec small company.
-                     Include job description, salary range, key responsibilities, essential and preferable qualifications, and required languages.
+                     include job descri
+                          require_once 'settings.php'; 
+                     ption, salary range, key responsibilities, essential and preferable qualifications, and required languages.
                 -->
 
                 <!-- Overview Info -->
@@ -123,8 +185,8 @@
                     <li>Job Title: Investigation Team Leader</li>
                     <li>Company: DataNexus's CyberSec</li>
                     <li>Location: Melbourne HQ</li>
-                    <li>Salary Range: $95,000 - $130,000 per year (based on experience)</li>
-                    <li>Job Reference ID: 00002</li>
+                    <li>Salary Range:public $
+                    <li>Job Reference ID: 00002</li>=
                 </ul>
 
                 <!-- Role Summary -->
@@ -176,7 +238,8 @@
 
     <!-- ========== FOOTER SECTION ========== -->
     <!-- Contains Jira link and contact info -->
-    <?php include 'footer.inc'; ?>
+    <?php include 'footer.inc';
+          require_once 'settings.php';  ?>
     
 
 </body>

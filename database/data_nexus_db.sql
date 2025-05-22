@@ -50,12 +50,11 @@ CREATE TABLE `expressions_of_interest` (
 --
 
 CREATE TABLE `jobs` (
-  `job_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `position` varchar(60) NOT NULL,
   `company` varchar(100) DEFAULT NULL,
   `location` varchar(50) DEFAULT NULL,
   `salary` varchar(40) DEFAULT NULL,
-  `id` int(11) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL,
   `responsibilities` varchar(1000) DEFAULT NULL,
   `qualifications` varchar(1000) DEFAULT NULL,
