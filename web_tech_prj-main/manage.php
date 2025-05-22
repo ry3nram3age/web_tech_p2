@@ -27,7 +27,7 @@
 
   
 
-       xfieldset {
+       fieldset {
             border: none;
             padding: 0;
         }
