@@ -1,129 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <meta name="description" content="HR management interface for handling job applications at Data Nexus.">
-    <meta name="keywords" content="Data Nexus, HR, manage applications, EOIs">
-    <meta name="author" content="Thomas Federico">
-    <title>Data Nexus - HR Management</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <meta name="description" content="HR management interface for handling job applications at Data Nexus.">
+  <meta name="keywords" content="Data Nexus, HR, manage applications, EOIs">
+  <meta name="author" content="Thomas Federico">
+  <title>Data Nexus - HR Management</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
 
-        h1.section-title {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 2rem;
-            color: #fff;
-        }
+    h1.section-title {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 2rem;
+      color: #fff;
+    }
 
-  
+    fieldset {
+      border: none;
+      padding: 0;
+    }
 
-       fieldset {
-            border: none;
-            padding: 0;
-        }
+    legend {
+      font-size: 1.5rem;
+      color: #ff6600;
+      margin-bottom: 25px;
+      font-weight: bold;
+      border-bottom: 1px solid #ff6600;
+      padding-bottom: 10px;
+    }
 
-        legend {
-            font-size: 1.5rem;
-            color: #ff6600;
-            margin-bottom: 25px;
-            font-weight: bold;
-            border-bottom: 1px solid #ff6600;
-            padding-bottom: 10px;
-        }
+    .hr-manage-panel label {
+      display: block;
+      margin-top: 25px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
 
-        .hr-manage-panel label {
-            display: block;
-            margin-top: 25px;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
+    input,
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: #222;
+      border: 1px solid #444;
+      border-radius: 6px;
+      color: #eee;
+      font-size: 1rem;
+    }
 
-        input, select {
-            width: 100%;
-            padding: 12px 16px;
-            background-color: #222;
-            border: 1px solid #444;
-            border-radius: 6px;
-            color: #eee;
-            font-size: 1rem;
-        }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 35px;
+    }
 
-       .button-group {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 35px;
-        }
+    button {
+      flex: 1 1 30%;
+      padding: 12px 0;
+      background-color: #ff6600;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        button {
-            flex: 1 1 30%;
-            padding: 12px 0;
-            background-color: #ff6600;
-            border: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #e05200;
-        }
-    </style>
+    button:hover {
+      background-color: #e05200;
+    }
+  </style>
 </head>
+
 <body>
-    <?php include 'nav.inc'; ?>
+  <?php include 'nav.inc'; ?>
 
-    <main>
+  <main>
 
 
-        <section class="hr-manage-panel">
-            <form action="manage.php" method="POST">
-                <fieldset>
-                    <legend>Search / Filter EOIs</legend>
+    <section class="hr-manage-panel">
+      <form action="manage.php" method="POST">
+        <fieldset>
+          <legend>Search / Filter EOIs</legend>
 
-                    <label for="job_ref">Job Reference Number:</label>
-                    <input type="text" id="job_ref" name="job_ref" placeholder="e.g., 00001">
+          <label for="job_ref">Job Reference Number:</label>
+          <input type="text" id="job_ref" name="job_ref" placeholder="e.g., 00001">
 
-                    <label for="first_name">First Name:</label>
-                    <input type="text" id="first_name" name="first_name">
+          <label for="first_name">First Name:</label>
+          <input type="text" id="first_name" name="first_name">
 
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" id="last_name" name="last_name">
+          <label for="last_name">Last Name:</label>
+          <input type="text" id="last_name" name="last_name">
 
-                    <label for="sort_field">Sort by:</label>
-                    <select name="sort_field" id="sort_field">
-                        <option value="eoi_id">EOI ID</option>
-                        <option value="job_ref">Job Ref</option>
-                        <option value="first_name">First Name</option>
-                        <option value="status">Status</option>
-                    </select>
+          <label for="sort_field">Sort by:</label>
+          <select name="sort_field" id="sort_field">
+            <option value="eoi_id">EOI ID</option>
+            <option value="job_ref">Job Ref</option>
+            <option value="first_name">First Name</option>
+            <option value="status">Status</option>
+          </select>
 
-                    <div class="button-group">
-                        <button type="submit" name="action" value="list">List EOIs</button>
-                        <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
-                        <button type="submit" name="action" value="update_status">Update EOI Status</button>
-                    </div>
-                </fieldset>
-            </form>
-        </section>
-    </main>
+          <div class="button-group">
+            <button type="submit" name="action" value="list">List EOIs</button>
+            <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
+            <button type="submit" name="action" value="update_status">Update EOI Status</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
 
-    <?php include 'footer.inc'; ?>
+  <?php include 'footer.inc'; ?>
 </body>
+
 </html>
 
 
