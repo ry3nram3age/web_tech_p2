@@ -631,9 +631,9 @@ h4, h5 {
     border-bottom: 1px solid #ff6600;
 }
 
-#jobs-apply1, #jobs-apply2 {
-  background-color: #4169E1;
-  color:white;
+.jobs-apply {
+ background-color: #4169E1;
+  color: white;
   border: none;
   padding: 1rem 2rem;
   border-radius: 4px;
@@ -642,6 +642,7 @@ h4, h5 {
   display: inline-block;
   font-weight: bold;
 }
+
 
 /* Job Description Boxes */
 #cybersecurity_specialist_position,
@@ -663,7 +664,7 @@ aside {
     margin: 1rem;
     border-style: double;
     border-width: 0.5rem;
-    border-color: #ff6600;
+    border-color: #1cff08;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 2em;
     animation: fadeSlideIn 1s ease-out forwards;
