@@ -27,39 +27,28 @@
     </head>
 
 <!-------- HEADER --------->
-<?php include 'includes/header.inc'; ?>
+    <header>
 
+    </header>
 <!------------------------->
 
 <!---------- BODY --------->
     <body>
-        <h1>Human Resources Manegment Quearies<h1>
-        <b>Content Goes Here (Placeholder)</b>
-<!-- Checkbox Options: List All EOIS, List EOIS for A Perticular Position, List all EOIs for a particular applicant given their first name, last name or both. -->
-<!-- Option to delete all eois, change status of eois. -->
- <p>Option</p>
-             <div class="radioBawtoens">
-                <div id="option" class="radio">
-                    <label for="listAllEOIs">List All EOIs</label>
-                    <input type="radio" name="option" id="listAllEOIs" value="Male" required>
-                </div>
-                <div id="option" class="radio">
-                    <label for="listAllEOIsPosition">List All EOIs by Position</label>
-                    <input type="radio" name="option" id="listAllEOIsPosition" value="Female">
-                </div>
-                <div id="option" class="radio">
-                    <label for="listAllEOIsName">List All EOIs by Name</label>
-                    <input type="radio" name="option" id="listAllEOIsName" value="Other">
-                </div>
-            </div>
 
-        <b>Job Reference Number</b>
-        <b>List of EOIs</b>
+
     </body>
 <!------------------------->
 
 <!-------- FOOTER --------->
-<?php include 'includes/footer.inc'; ?>
+    <footer>
+
+        <div class="footer-content">
+          <a href="https://student-team-d82481z6.atlassian.net/jira/software/projects/PP1/boards/3/timeline?selectedIssue=PP1-28&atlOrigin=eyJpIjoiOTdlZTc1Mjg2MWIyNDVmYmI0NWRlZDRlZDdhZGNmNWEiLCJwIjoiaiJ9" id="footer-items">Jira Project</a>
+          <p>Contact us at <a href="mailto:info@datanexus.com.au">info@datanexus.com.au</a></p>
+          <p>&copy; 2024 Data Nexus. All rights reserved.</p>
+        </div>
+
+    </footer>
 <!------------------------->
 </html>
 
@@ -83,5 +72,11 @@ username and a password rule, and store this information in a table.
     • Control access to manage.php by checking username and password.
     • Have access to the web site disabled for user a period of time on, say, three or more
       invalid login attempts.
+
+
+Need To:
+
+Make a werbsite that lists all of the applications for a job position (this is a eoi)
+
 
 -!>
