@@ -66,7 +66,7 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`job_id`, `position`, `company`, `location`, `salary`, `id`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
+INSERT INTO `jobs` (`id`, `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
 (1, 'Cybersecurity Specialist', 'DataNexus\s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
 (2, 'Investigation Team Leader', 'DataNexus\s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
 
@@ -84,7 +84,7 @@ ALTER TABLE `expressions_of_interest`
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`job_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -100,7 +100,7 @@ ALTER TABLE `expressions_of_interest`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

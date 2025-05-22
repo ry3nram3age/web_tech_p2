@@ -57,14 +57,13 @@
             
                 <?php
                 function put_in_list($str) {
-                                        echo "<ul>";
+                    echo "<ul>";
                     $strArr = [];
                     $strArr = explode(". ", $str);
                     foreach ($strArr as $sentence) {
                         echo "<li>" . $sentence . "</li>";
                     }
                     echo "</ul>";
-
                 }
 
                 class Jobs {
