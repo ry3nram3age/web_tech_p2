@@ -198,56 +198,35 @@
   <table class="styled-table">
     <thead>
       <tr>
-        <th>EOI ID</th>
-        <th>Job Ref</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <!-- create loob and get the table headings -->
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1001</td>
-        <td>00001</td>
-        <td>Ryan</td>
-        <td>Smith</td>
-        <td>ryan@example.com</td>
-        <td>0400123456</td>
-        <td>New</td>
-        <td>
-          <button class="btn-approve">Approve</button>
-          <button class="btn-reject">Reject</button>
-        </td>
-      </tr>
-      <tr>
-        <td>1002</td>
-        <td>00002</td>
-        <td>Jess</td>
-        <td>Brown</td>
-        <td>jess@example.com</td>
-        <td>0411222333</td>
-        <td>Pending</td>
-        <td>
-          <button class="btn-approve">Approve</button>
-          <button class="btn-reject">Reject</button>
-        </td>
-      </tr>
-      <tr>
-        <td>1003</td>
-        <td>00001</td>
-        <td>Ali</td>
-        <td>Khan</td>
-        <td>ali@example.com</td>
-        <td>0433445566</td>
-        <td>Rejected</td>
-        <td>
-          <button class="btn-approve">Approve</button>
-          <button class="btn-reject">Reject</button>
-        </td>
-      </tr>
+      <?php
+      require_once ("settings.php");
+
+  if ($conn) {
+        $query = "SELECT * FROM jobs";
+        $result = mysqli_query ($conn, $query);
+        if ($result) {
+            echo "<table border='1' cellpading='5'>";
+            echo "<tr><th>ID</th><th>Make</th><th>Model</th><th>Price</th><th?>Year</th><th>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['id'] . "</td>";
+                echo "<td>" . $row['position'] . "</td>";
+// add the rest of the table values
+                echo "<tr>";
+            }
+        }
+        else {
+            echo "Could not connect :(";
+        }
+
+        mysqli_close ($conn);
+    } else echo "<p>Unable to connect to the db.</p>";
+
+?>
     </tbody>
   </table>
 </section>
@@ -285,4 +264,4 @@ username and a password rule, and store this information in a table.
     • Have access to the web site disabled for user a period of time on, say, three or more
       invalid login attempts.
 
--!>
+      
