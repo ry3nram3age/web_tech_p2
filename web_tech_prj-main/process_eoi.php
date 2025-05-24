@@ -2,6 +2,10 @@
 require_once 'settings.php';
 //AUTHOR - Max Dinon, Ryan Neill
 //Security session id stuff so users cant access this page
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403); // Forbidden
+    exit('Direct access not allowed.');
+}
 
 function test_input($data) 
 {
