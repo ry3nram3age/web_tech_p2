@@ -2,6 +2,11 @@
 require_once 'settings.php';
 //AUTHOR - Max Dinon, Ryan Neill
 //Security session id stuff so users cant access this page
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403); // Forbidden
+    exit('Direct access not allowed.');
+}
+
 function test_input($data) 
 {
     $data = trim($data);
@@ -26,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $phoneNumber = test_input($_POST['phoneNumber']);
   $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
   $otherSkills = test_input($_POST['otherSkills']);
-  $status = "New"
+  $status = "New";
+}
 //Ryan's Eoi Validation
   if (empty($jobReferenceNumber)) 
     {
@@ -82,8 +88,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             echo "Suburb must be between 2 and 50 characters long.";
         }
-        elseif (empty($state)) 
+        //Fixed this statement
+        elseif (empty($state) and ($state != "VIC") and ($state != "NSW") and ($state = "QLD") and ($state != "NT") and ($state != "WA") and ($state != "SA") and ($state != "TAS") and ($state != "ACT")) 
         {
+            echo $state;
             echo "You must select a state";
         }
         elseif (empty($postcode)) 
@@ -99,14 +107,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "Postcode must be between 1 - 4 digits";
         }
         else {
-            //Max's DB table entry code code to the EOI table
+          //Check if the table exists
+            $table_check_sql = "SELECT 1 FROM information_schema.tables 
+                                WHERE table_schema = ? AND table_name = ? 
+                                LIMIT 1";
+            $check_stmt = $conn->prepare($table_check_sql);
+            $table_name = 'expressions_of_interest';
+            $check_stmt->bind_param("ss", $database, $table_name);
+            $check_stmt->execute();
+            $check_stmt->store_result();
+
+            if ($check_stmt->num_rows === 0) {
+                //create table if it doesnt exist
+                $create_table_sql = "
+                CREATE TABLE expressions_of_interest (
+                `EOInumber` int(11) NOT NULL,
+                `job_reference_number` int(10) NOT NULL,
+                `first_name` varchar(50) NOT NULL,
+                `last_name` varchar(50) NOT NULL,
+                `gender` varchar(10) NOT NULL,
+                `street_address` varchar(46) NOT NULL,
+                `suburb` int(60) NOT NULL,
+                `state` int(3) NOT NULL,
+                `postcode` varchar(4) NOT NULL,
+                `email address` varchar(360) NOT NULL,
+                `phone_number` int(15) NOT NULL,
+                `skills` varchar(500) NOT NULL,
+                `other_skills` varchar(500) NOT NULL,
+                `status` varchar(10) NOT NULL DEFAULT 'New'
+                )";
+                
+                if (!mysqli_query($conn, $create_table_sql)) {
+                    die("Error creating table: " . mysqli_error($conn));
+                }
+            }
+
+       
+            //Max's Code to insert data into EOI table
             $sql = "INSERT INTO expressions_of_interest
                     (job_reference_number, first_name, last_name, gender, street_address,
-                    suburb, state, postcode, email_address, phone_number, skills, other_skills, status)
+                    suburb, state, postcode, email_address, phone_number, skills, other_skills)
                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param(
-                "sssssssisssss",
+                "sssssssissss",
                 $jobReferenceNumber,
                 $first_name,
                 $last_name,
@@ -119,10 +163,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 $phoneNumber,
                 $requiredTechnicalList,
                 $otherSkills
-                $status
             );
             $stmt->execute();
-        }
-    }
 
+            $stmt->close();
+            $check_stmt->close();
+            $conn->close();
+
+        }
 ?>
