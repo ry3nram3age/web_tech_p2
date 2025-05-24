@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
         else {
             //Max's DB table entry code code to the EOI table
-            $sql = "INSERT INTO expressions_of_interest
+            $sql = "INSERT INTO eoi
                     (job_reference_number, first_name, last_name, gender, street_address,
                     suburb, state, postcode, email_address, phone_number, skills, other_skills)
                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
