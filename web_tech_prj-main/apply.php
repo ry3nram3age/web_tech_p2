@@ -31,7 +31,7 @@
 <body>
 
 <!-- ========== HEADER ========== -->
-<?php include 'includes/header.inc'; ?>
+<?php include 'nav.inc'; ?>
     
 
 <!-- ========== MAIN CONTENT ========== -->
@@ -50,7 +50,7 @@
     </div>
 
     <!-- ========== APPLICATION FORM ========== -->
-    <form method="post" action="php/process_eoi.php" id="jobApplicationForm">
+    <form method="post" action="process_eoi.php" id="jobApplicationForm">
 
         <!-- Step 1: Job Reference Number -->
         <fieldset data-step="1">
@@ -174,6 +174,6 @@
 </main>
 
 <!-- ========== FOOTER ========== -->
-<?php include 'includes/footer.inc'; ?>
+<?php include 'footer.inc'; ?>
 </body>
 </html>

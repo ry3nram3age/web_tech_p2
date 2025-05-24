@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $phoneNumber = test_input($_POST['phoneNumber']);
   $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
   $otherSkills = test_input($_POST['otherSkills']);
+  $status = "New"
 //Ryan's Eoi Validation
   if (empty($jobReferenceNumber)) 
     {
@@ -101,11 +102,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             //Max's DB table entry code code to the EOI table
             $sql = "INSERT INTO expressions_of_interest
                     (job_reference_number, first_name, last_name, gender, street_address,
-                    suburb, state, postcode, email_address, phone_number, skills, other_skills)
+                    suburb, state, postcode, email_address, phone_number, skills, other_skills, status)
                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param(
-                "sssssssissss",
+                "sssssssisssss",
                 $jobReferenceNumber,
                 $first_name,
                 $last_name,
@@ -118,6 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 $phoneNumber,
                 $requiredTechnicalList,
                 $otherSkills
+                $status
             );
             $stmt->execute();
         }

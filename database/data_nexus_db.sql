@@ -40,7 +40,8 @@ CREATE TABLE `expressions_of_interest` (
   `email address` varchar(360) NOT NULL,
   `phone_number` int(15) NOT NULL,
   `skills` varchar(500) NOT NULL,
-  `other_skills` varchar(500) NOT NULL
+  `other_skills` varchar(500) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -57,8 +58,8 @@ CREATE TABLE `jobs` (
   `salary` varchar(40) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL,
   `responsibilities` varchar(1000) DEFAULT NULL,
-  `qualifications` varchar(1000) DEFAULT NULL,
-  `experience` varchar(1000) DEFAULT NULL,
+  `essential_qualifications` varchar(1000) DEFAULT NULL,
+  `preferable_qualifications` varchar(1000) DEFAULT NULL,
   `languages` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,9 +67,10 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`job_id`, `position`, `company`, `location`, `salary`, `id`, `description`, `responsibilities`, `qualifications`, `experience`, `languages`) VALUES
-(1, 'Cybersecurity Specialist', 'DataNexus\s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 1, NULL, NULL, NULL, NULL, NULL),
-(2, 'Investigation Team Leader', 'DataNexus\s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `jobs` ( `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `essential_qualifications`, `preferable_qualifications`, `languages`) VALUES
+(1, 'Cybersecurity Specialist', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 'The Cybersecurity Specialist at DataNexus\'s CyberSec will play a key role in safeguarding our clients\' digital assets by identifying vulnerabilities, implementing security protocols, and responding to incidents. You will work with advanced technologies to ensure robust security across systems and networks.', 'Perform vulnerability assessments and penetration testing. Lead incident response and security breach resolution. Design and implement secure networks and systems. Monitor security alerts and proactively defend against cyber threats. Conduct security audits and provide recommendations for improvements.', '3+ years of hands-on cybersecurity experience. Strong knowledge of network protocols, firewalls, and security tools. Certifications: CISSP, CEH, CompTIA Security+, or equivalent. Experience with security platforms like Splunk, Nessus, or Wireshark. Excellent problem-solving and communication skills.', 'Experience in a Security Operations Center (SOC). Advanced certifications (e.g., CISM, CCSP, OSCP). Programming knowledge (Python, PowerShell, Bash). Experience with cloud security (AWS, Azure, GCP).', 'English (fluent, written and spoken). Additional languages (Spanish, Mandarin) are a plus.'),
+(2, 'Investigation Team Leader', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 'The Investigation Leader will be responsible for overseeing cybersecurity investigations related to incident response, digital forensics, and threat analysis. They will lead a team to identify and mitigate cybersecurity threats while ensuring the integrity of digital evidence and maintaining a high standard of investigative practices.', 'Lead and manage cybersecurity investigations. Collaborate with internal cybersecurity teams. Analyse and document findings. Ensure digital evidence complies with legal standards. Mentor junior investigators. Stay updated on current trends.', 'Bachelor\'s degree in Cybersecurity, IT, or related field. 5+ years experience in cybersecurity investigations. Proven leadership experience. Knowledge of cybersecurity frameworks/tools. Strong analytical and communication skills.', 'Master\'s degree in Cybersecurity or related field. Relevant certifications (e.g. CEH, CISSP, CCFP). Experience with cloud security. Familiarity with malware analysis.', 'English (fluent, both written and spoken). Additional languages (Spanish, French, Mandarin) are a pl');
+
 
 --
 -- Indexes for dumped tables
@@ -84,7 +86,7 @@ ALTER TABLE `expressions_of_interest`
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`job_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -100,7 +102,7 @@ ALTER TABLE `expressions_of_interest`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

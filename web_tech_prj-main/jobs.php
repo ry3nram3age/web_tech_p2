@@ -14,7 +14,7 @@
     <!-- USED CHATGPT TO ANALYSE THE REQUIREMENTS, TO MAKE SURE WE COVERED EVERYTHING NEEDED BY THE ASSIGNMENT -->
     
     <!-- Author of the page -->
-    <meta name="author" content="Max Dinon">
+    <meta name="author" content="Max Dinon, Ash Jean">
 
     <!-- ========== STYLESHEETS AND FONTS ========== -->
     <!-- External CSS and Google Fonts -->
@@ -57,29 +57,27 @@
             
                 <?php
                 function put_in_list($str) {
-                                        echo "<ul>";
+                    echo "<ul>";
                     $strArr = [];
                     $strArr = explode(". ", $str);
                     foreach ($strArr as $sentence) {
                         echo "<li>" . $sentence . "</li>";
                     }
                     echo "</ul>";
-
                 }
-
                 class Jobs {
-                   public $job_id;
+                   public $id;
                    public $position;
                    public $company;
                    public $location;
                    public $salary;
-                   public $id;
                    public $description;
                    public $responsibilities;
                    public $essential_qualifications;
                    public $preferable_qualifications;
                    public $languages;
                 } 
+
                 $sql = "SELECT * FROM jobs";
                 $result = mysqli_query($conn, $sql);
 
@@ -110,7 +108,7 @@
                 while ($i < count($jobs)) {
                     $job = $jobs[$i];
                     //    Dynamic Job Position Info page
-                    echo "<section id='investigation_team_leader_position'>";
+                    echo "<section class='job_position'>";
                     echo "<h2>" . $job->position ."</h2>";
                     echo "<h3>Brief Description</h3>";
                     echo "<ul>";
@@ -131,7 +129,7 @@
                     put_in_list($job->preferable_qualifications);
                     echo "<h4>Languages Required:</h4>";
                     put_in_list($job->languages);
-                    echo "<a href='apply.php' id='jobs-apply2'>APPLY</a>";
+                    echo "<a href='apply.php' class='jobs-apply'>APPLY</a>";
                     echo "</section>";
                     $i++;
                 }
@@ -141,7 +139,6 @@
 
 <?php 
 include 'footer.inc';
-require_once 'settings.php';  
 ?>
 </body>
 </html>
