@@ -66,12 +66,11 @@
                     echo "</ul>";
                 }
                 class Jobs {
-                   public $job_id;
+                   public $id;
                    public $position;
                    public $company;
                    public $location;
                    public $salary;
-                   public $id;
                    public $description;
                    public $responsibilities;
                    public $essential_qualifications;
