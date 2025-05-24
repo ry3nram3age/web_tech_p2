@@ -40,7 +40,8 @@ CREATE TABLE `expressions_of_interest` (
   `email address` varchar(360) NOT NULL,
   `phone_number` int(15) NOT NULL,
   `skills` varchar(500) NOT NULL,
-  `other_skills` varchar(500) NOT NULL
+  `other_skills` varchar(500) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
