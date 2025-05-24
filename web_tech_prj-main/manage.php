@@ -158,33 +158,11 @@
 <body>
 
 
-<<<<<<< HEAD
-<!--------- TASKS AND INFO FOR ME
-=======
     <?php include 'nav.inc'; ?>
->>>>>>> ad4be4a0f256b88a4d62f9f641df245cdf6429a7
 
     <main>
 
 
-<<<<<<< HEAD
-username and a password rule, and store this information in a table.
-    • Control access to manage.php by checking username and password.
-    • Have access to the web site disabled for user a period of time on, say, three or more
-      invalid login attempts.
- -->
-     
-<?php
-
-    // Max's Code
-
-                $sql = "SELECT * FROM 'expressions_of_interest'";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param(
-
-            );
-    
-=======
         <section class="hr-manage-panel">
             <form action="manage.php" method="POST">
                 <fieldset>
@@ -287,4 +265,3 @@ username and a password rule, and store this information in a table.
 
 
 </html>
->>>>>>> ad4be4a0f256b88a4d62f9f641df245cdf6429a7
