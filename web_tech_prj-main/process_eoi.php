@@ -164,7 +164,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 $requiredTechnicalList,
                 $otherSkills
             );
+
             $stmt->execute();
+
+            $eoiNumber = $conn->insert_id;
+
+            echo "<h2>Thank you, $first_name!</h2>";
+            echo "<p>Your Expression of Interest has been submitted successfully.</p>";
+            echo "<p>Your EOI number is: <strong>$eoiNumber</strong></p>";
 
             $stmt->close();
             $check_stmt->close();
