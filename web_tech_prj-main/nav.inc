@@ -11,4 +11,5 @@
             <a href="apply.php" class="home-navlinks">Apply</a>
             <a href="about.php" class="home-navlinks">About</a>
         </nav>
+            <a href="login.php" class="home-navlinks">Login</a>
     </header>
