@@ -4,7 +4,10 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- prohibited.php made and developed by Ryan Neill -->
     <meta charset="UTF-8">
+    <meta name="description" content="Direct Access Prohibited to pages that require login access">
+<meta name="author" content="Ryan Neill">
     <title>Access Prohibited</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

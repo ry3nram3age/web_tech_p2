@@ -4,7 +4,7 @@ require_once 'settings.php';
 //Security session id stuff so users cant access this page
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(403);
-    header("Location: prohibited.php"); // Forbidden
+    header("Location: direct_access_blocked.php"); // Forbidden
     exit();
 }
 

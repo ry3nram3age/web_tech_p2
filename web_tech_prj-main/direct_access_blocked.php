@@ -4,6 +4,7 @@ http_response_code(403); // Forbidden
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- direct_access_blocked.php made and developed by Ryan Neill -->
     <meta charset="UTF-8">
     <title>403 Forbidden</title>
     <link rel="stylesheet" href="styles/styles.css">

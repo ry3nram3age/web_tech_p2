@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- login.php made and developed by Ryan Neill -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
@@ -83,31 +84,58 @@
 session_start();
 require_once("settings.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// CONFIGURATION
+$max_attempts = 4;          // max failed tries allowed
+$lockout_time = 300;        // lockout time in seconds (5 minutes)
+
+// Check if locked out
+if (isset($_SESSION['lockout_expires'])) {
+    if (time() < $_SESSION['lockout_expires']) {
+        $remaining = $_SESSION['lockout_expires'] - time();
+        die("❌ You are temporarily locked out. Please try again in $remaining seconds.");
+    } else {
+        // Lockout expired, reset
+        unset($_SESSION['failed_attempts']);
+        unset($_SESSION['lockout_expires']);
+    }
+}
+
+// Initialize failed attempts
+if (!isset($_SESSION['failed_attempts'])) {
+    $_SESSION['failed_attempts'] = 0;
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    if (empty($username)) {
-        die("Username is required.");
+    // Validate inputs
+    if (empty($username) || empty($password)) {
+        die("❌ Username and password are required.");
     }
 
-    if (empty($password)) {
-        die("Password is required.");
-    }
-
+    // Escape inputs (minimum safety)
     $username_safe = mysqli_real_escape_string($conn, $username);
     $password_safe = mysqli_real_escape_string($conn, $password);
 
-    $query  = "SELECT * FROM users WHERE username = '$username_safe' AND password = '$password_safe'";
+    $query = "SELECT * FROM users WHERE username = '$username_safe' AND password = '$password_safe'";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
-        $_SESSION['username'] = $user['username'];
+        $_SESSION['username'] = $username;
+        $_SESSION['failed_attempts'] = 0; // reset on success
         header("Location: manage.php");
         exit();
     } else {
-        die("Incorrect Username and Password.");
+        $_SESSION['failed_attempts']++;
+
+        if ($_SESSION['failed_attempts'] >= $max_attempts) {
+            $_SESSION['lockout_expires'] = time() + $lockout_time;
+            die("❌ Too many failed attempts. You are locked out for " . ($lockout_time / 60) . " minutes.");
+        } else {
+            // Do not show remaining attempts; just generic error
+            echo "❌ Incorrect username or password.";
+        }
     }
 }
 ?>
