@@ -15,6 +15,13 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+//Security session id stuff so users cant access this page - Max
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403); // Forbidden
+    exit('Direct access not allowed.');
+}
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
@@ -108,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "Postcode must be between 1 - 4 digits";
         }
         else {
-          //Check if the table exists
+          //Check if the table exists - Max
             $table_check_sql = "SELECT 1 FROM information_schema.tables 
                                 WHERE table_schema = ? AND table_name = ? 
                                 LIMIT 1";
@@ -119,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $check_stmt->store_result();
 
             if ($check_stmt->num_rows === 0) {
-                //create table if it doesnt exist
+                //create table if it doesnt exist - Max
                 $create_table_sql = "
                 CREATE TABLE expressions_of_interest (
                 `EOInumber` int(11) NOT NULL,
@@ -165,7 +172,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 $requiredTechnicalList,
                 $otherSkills
             );
+
             $stmt->execute();
+
+            $eoiNumber = $conn->insert_id;
+
+            echo "<h2>Thank you, $first_name!</h2>";
+            echo "<p>Your Expression of Interest has been submitted successfully.</p>";
+            echo "<p>Your EOI number is: <strong>$eoiNumber</strong></p>";
 
             $stmt->close();
             $check_stmt->close();
