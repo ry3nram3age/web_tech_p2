@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 //create table if it doesnt exist - Max
                 $create_table_sql = "
                 CREATE TABLE expressions_of_interest (
-                `EOInumber` int(11) NOT NULL,
+                `EOInumber` int(11) NOT NULL AUTO_INCREMENT,
                 `job_reference_number` int(10) NOT NULL,
                 `first_name` varchar(50) NOT NULL,
                 `last_name` varchar(50) NOT NULL,
@@ -142,7 +142,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 `phone_number` int(15) NOT NULL,
                 `skills` varchar(500) NOT NULL,
                 `other_skills` varchar(500) NOT NULL,
-                `status` varchar(10) NOT NULL DEFAULT 'New'
+                `status` varchar(10) NOT NULL DEFAULT 'New',
+                PRIMARY KEY (EOInumber)
                 )";
                 
                 if (!mysqli_query($conn, $create_table_sql)) {
