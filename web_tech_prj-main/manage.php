@@ -2,245 +2,169 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="styles/styles.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <meta name="description" content="HR management interface for handling job applications at Data Nexus.">
-  <meta name="keywords" content="Data Nexus, HR, manage applications, EOIs">
-  <meta name="author" content="Thomas Federico">
-  <title>Data Nexus - HR Management</title>
-
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #1a1a1a;
-      color: #ffffff;
-    }
-
-    h1.section-title {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 2rem;
-      color: #fff;
-    }
-
-    fieldset {
-      border: none;
-      padding: 0;
-    }
-
-    legend {
-      font-size: 1.5rem;
-      color: #ff6600;
-      margin-bottom: 25px;
-      font-weight: bold;
-      border-bottom: 1px solid #ff6600;
-      padding-bottom: 10px;
-    }
-
-    .hr-manage-panel label {
-      display: block;
-      margin-top: 25px;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 12px 16px;
-      background-color: #222;
-      border: 1px solid #444;
-      border-radius: 6px;
-      color: #eee;
-      font-size: 1rem;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 35px;
-    }
-
-    button {
-      flex: 1 1 30%;
-      padding: 12px 0;
-      background-color: #ff6600;
-      border: none;
-      color: white;
-      font-weight: bold;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-        button:hover {
-            background-color: #e05200;
-        }
-        .eoi-results-table {
-    margin-top: 20px;
-    background-color: #111;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <meta name="description" content="HR management interface for handling job applications at Data Nexus.">
+    <meta name="keywords" content="Data Nexus, HR, manage applications, EOIs">
+    <meta name="author" content="Thomas Federico">
+    <title>Data Nexus - HR Management</title>
+    <style>
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.eoi-results-table h2 {
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: center;
+.filter-form {
+  flex: 1 1 450px;
+  max-width: 500px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.filter-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-form button {
+  width: 100%;
+  margin-top: 10px;
 }
 
 .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #1e1e1e;
-    color: white;
-    font-size: 0.95rem;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 0.85rem;
 }
 
 .styled-table th,
 .styled-table td {
-    border: 1px solid #333;
-    padding: 12px;
-    text-align: center;
+  border: 1px solid #333;
+  padding: 8px 10px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .styled-table th {
-    background-color: #ff6600;
-    color: white;
+  background-color: #ff6600;
 }
 
-.styled-table tr:nth-child(even) {
-    background-color: #2a2a2a;
+.results-table h2 {
+  text-align: center;
 }
 
-.btn-view {
-    background-color: #1e90ff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
+.results-table {
+  flex: 1;
+  max-width: 900px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  overflow-x: auto;
+  margin: 0 auto;
 }
 
-.btn-approve {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin-left: 6px;
-    cursor: pointer;
+.filter-form h2 {
+  text-align: center;
+  padding-bottom: 2rem;
 }
 
-.btn-reject {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin-left: 6px;
-    cursor: pointer;
+.btn-approve, .btn-reject, .btn-view {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  margin: 0 2px;
+  border-radius: 4px;
 }
   </style>
 </head>
 
 <body>
 
+<?php include 'nav.inc'; ?>
 
-    <?php include 'nav.inc'; ?>
+<main>
+  <section class="filter-form">
+    <h2>Search / Filter EOIs</h2>
+    <form action="manage.php" method="POST">
+      <label for="job_ref">Job Reference Number</label>
+      <input type="text" id="job_ref" name="job_ref" placeholder="e.g., 00001">
 
-  <main>
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" name="first_name">
 
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" name="last_name">
 
-    <section class="hr-manage-panel">
-      <form action="manage.php" method="POST">
-        <fieldset>
-          <legend>Search / Filter EOIs</legend>
+      <label for="sort_field">Sort by</label>
+      <select name="sort_field" id="sort_field">
+        <option value="eoi_id">EOI ID</option>
+        <option value="job_ref">Job Ref</option>
+        <option value="first_name">First Name</option>
+        <option value="status">Status</option>
+      </select>
 
-          <label for="job_ref">Job Reference Number:</label>
-          <input type="text" id="job_ref" name="job_ref" placeholder="e.g., 00001">
+      <button type="submit" name="action" value="list">List EOIs</button>
+      <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
+      <button type="submit" name="action" value="update_status">Update EOI Status</button>
+    </form>
+  </section>
 
-          <label for="first_name">First Name:</label>
-          <input type="text" id="first_name" name="first_name">
-
-          <label for="last_name">Last Name:</label>
-          <input type="text" id="last_name" name="last_name">
-
-          <label for="sort_field">Sort by:</label>
-          <select name="sort_field" id="sort_field">
-            <option value="eoi_id">EOI ID</option>
-            <option value="job_ref">Job Ref</option>
-            <option value="first_name">First Name</option>
-            <option value="status">Status</option>
-          </select>
-
-                    <div class="button-group">
-                        <button type="submit" name="action" value="list">List EOIs</button> 
-                        <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
-                        <button type="submit" name="action" value="update_status">Update EOI Status</button>
-                    </div>
-
-                    
-            </fieldset>
-            </form>
-
-            <section class="eoi-results-table">
-  <h2>Manage Job Applications</h2>
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <!-- create loob and get the table headings -->
-      </tr>
-    </thead>
-    <tbody>
+  <section class="results-table">
+    <h2>Results Table</h2>
+    <table class="styled-table">
       <?php
-      require_once ("settings.php");
+      require_once("settings.php");
 
-  if ($conn) {
-        $query = "SELECT * FROM jobs";
-        $result = mysqli_query ($conn, $query);
-        if ($result) {
-            echo "<table border='1' cellpading='5'>";
-            echo "<tr><th>ID</th><th>Make</th><th>Model</th><th>Price</th><th?>Year</th><th>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['position'] . "</td>";
-// add the rest of the table values
-                echo "<tr>";
-            }
-        }
-        else {
-            echo "Could not connect :(";
-        }
+      $sql = "SELECT * FROM eoi";
+      $result = mysqli_query($conn, $sql);
 
-        mysqli_close ($conn);
-    } else echo "<p>Unable to connect to the db.</p>";
+      if (mysqli_num_rows($result) > 0) {
+          echo "<thead><tr>";
+          $fields = mysqli_fetch_fields($result);
+          foreach ($fields as $field) {
+              echo "<th>" . htmlspecialchars($field->name) . "</th>";
+          }
+          echo "</tr></thead><tbody>";
 
-?>
-    </tbody>
-  </table>
-</section>
-</div>
-           
-    
-    </main>
+          while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>";
+              foreach ($fields as $field) {
+                  $columnName = $field->name;
+                  echo "<td>" . htmlspecialchars($row[$columnName]) . "</td>";
+              }
+              echo "</tr>";
+          }
 
-    <?php include 'footer.inc'; ?>
+          echo "</tbody>";
+      } else {
+          echo "<tr><td colspan='100%'>🚫 Database not found.</td></tr>";
+      }
 
+      mysqli_close($conn);
+      ?>
+    </table>
+  </section>
+</main>
+
+<?php include 'footer.inc'; ?>
 
 </body>
-
-
 </html>
 
 

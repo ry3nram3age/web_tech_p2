@@ -646,14 +646,12 @@ h4, h5 {
 
 /* Job Description Boxes */
 #cybersecurity_specialist_position,
-#investigation_team_leader_position {
+.job_position {
     border: #ff6600 solid 3px;
     animation: fadeSlideIn 1s ease-out forwards;
-}
-
-#investigation_team_leader_position {
     margin-top: 0.5rem;
 }
+
 
 
 
