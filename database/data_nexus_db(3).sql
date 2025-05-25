@@ -21,43 +21,12 @@ SET time_zone = "+00:00";
 -- Database: `data_nexus_db`
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `eoi`
---
-
-CREATE TABLE `eoi` (
-  `EOInumber` int(11) NOT NULL,
-  `job_reference_number` int(10) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `street_address` varchar(46) NOT NULL,
-  `suburb` varchar(60) NOT NULL,
-  `state` varchar(3) NOT NULL,
-  `postcode` varchar(4) NOT NULL,
-  `email address` varchar(360) NOT NULL,
-  `phone_number` int(15) NOT NULL,
-  `skills` varchar(500) NOT NULL,
-  `other_skills` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `eoi`
---
-
-INSERT INTO `eoi` (`EOInumber`, `job_reference_number`, `first_name`, `last_name`, `gender`, `street_address`, `suburb`, `state`, `postcode`, `email address`, `phone_number`, `skills`, `other_skills`) VALUES
-(12345, 1, 'Alex', 'Smith', 'Non-binary', '123 Main Street', 'Melbourne', 'VIC', '3000', 'alex.smith@example.com', 412345678, 'HTML, CSS, JavaScript', 'Photography, Blogging');
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `expressions_of_interest`
 --
 
 CREATE TABLE `expressions_of_interest` (
-  `EOInumber` int(11) NOT NULL,
+  `EOInumber` int(11) NOT NULL AUTO_INCREMENT,
   `job_reference_number` int(10) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
@@ -66,11 +35,12 @@ CREATE TABLE `expressions_of_interest` (
   `suburb` int(60) NOT NULL,
   `state` int(3) NOT NULL,
   `postcode` varchar(4) NOT NULL,
-  `email address` varchar(360) NOT NULL,
+  `email_address` varchar(360) NOT NULL,
   `phone_number` int(15) NOT NULL,
   `skills` varchar(500) NOT NULL,
   `other_skills` varchar(500) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'New'
+  PRIMARY KEY (EOInumber)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -96,9 +66,9 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `essential_qualifications`, `preferable_qualifications`, `languages`) VALUES
-(1, 'Cybersecurity Specialist', 'DataNexuss CyberSec', 'Melbourne HQ', '$90,000 - $130,000', NULL, NULL, NULL, NULL, NULL),
-(2, 'Investigation Team Leader', 'DataNexuss CyberSec', 'Melbourne HQ', '$95,000 - $130,000', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `jobs` ( `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `essential_qualifications`, `preferable_qualifications`, `languages`) VALUES
+(1, 'Cybersecurity Specialist', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 'The Cybersecurity Specialist at DataNexus\'s CyberSec will play a key role in safeguarding our clients\' digital assets by identifying vulnerabilities, implementing security protocols, and responding to incidents. You will work with advanced technologies to ensure robust security across systems and networks.', 'Perform vulnerability assessments and penetration testing. Lead incident response and security breach resolution. Design and implement secure networks and systems. Monitor security alerts and proactively defend against cyber threats. Conduct security audits and provide recommendations for improvements.', '3+ years of hands-on cybersecurity experience. Strong knowledge of network protocols, firewalls, and security tools. Certifications: CISSP, CEH, CompTIA Security+, or equivalent. Experience with security platforms like Splunk, Nessus, or Wireshark. Excellent problem-solving and communication skills.', 'Experience in a Security Operations Center (SOC). Advanced certifications (e.g., CISM, CCSP, OSCP). Programming knowledge (Python, PowerShell, Bash). Experience with cloud security (AWS, Azure, GCP).', 'English (fluent, written and spoken). Additional languages (Spanish, Mandarin) are a plus.'),
+(2, 'Investigation Team Leader', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 'The Investigation Leader will be responsible for overseeing cybersecurity investigations related to incident response, digital forensics, and threat analysis. They will lead a team to identify and mitigate cybersecurity threats while ensuring the integrity of digital evidence and maintaining a high standard of investigative practices.', 'Lead and manage cybersecurity investigations. Collaborate with internal cybersecurity teams. Analyse and document findings. Ensure digital evidence complies with legal standards. Mentor junior investigators. Stay updated on current trends.', 'Bachelor\'s degree in Cybersecurity, IT, or related field. 5+ years experience in cybersecurity investigations. Proven leadership experience. Knowledge of cybersecurity frameworks/tools. Strong analytical and communication skills.', 'Master\'s degree in Cybersecurity or related field. Relevant certifications (e.g. CEH, CISSP, CCFP). Experience with cloud security. Familiarity with malware analysis.', 'English (fluent, both written and spoken). Additional languages (Spanish, French, Mandarin) are a pl');
 
 -- --------------------------------------------------------
 
