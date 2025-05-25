@@ -37,7 +37,7 @@ CREATE TABLE `expressions_of_interest` (
   `suburb` int(60) NOT NULL,
   `state` int(3) NOT NULL,
   `postcode` varchar(4) NOT NULL,
-  `email address` varchar(360) NOT NULL,
+  `email_address` varchar(360) NOT NULL,
   `phone_number` int(15) NOT NULL,
   `skills` varchar(500) NOT NULL,
   `other_skills` varchar(500) NOT NULL,
