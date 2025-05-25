@@ -81,9 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             echo "An address needs to be entered";
         }
-        elseif (!preg_match("/^[0-9]{1,5}[A-Za-z]?\s[A-Za-z\s]{2,50}$/", $address)) {
-            echo "Address needs to be in the form 123 Main Street, 12B Victoria Rd";
-        }
+       
         elseif (empty($suburb)) 
         {
             echo "You must enter a suburb";
@@ -177,13 +175,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
             $eoiNumber = $conn->insert_id;
 
-            echo "<h2>Thank you, $first_name!</h2>";
-            echo "<p>Your Expression of Interest has been submitted successfully.</p>";
-            echo "<p>Your EOI number is: <strong>$eoiNumber</strong></p>";
+         
 
             $stmt->close();
             $check_stmt->close();
             $conn->close();
+
+            header("Location: applicaion_submission.php");
+            exit();
 
         }
 ?>
