@@ -58,7 +58,7 @@
         <h2>Where Is Our Business Set Up?</h2>
         <ul>
             <li>BA building, Room 603</li>
-            <li>Meet weekly from 8:30am–10:30am on Fridays</li>
+            <li>Meet weekly from 8:30am-10:30am on Fridays</li>
         </ul>
 
         <!-- Roles and responsibilities of each team member -->
@@ -124,7 +124,7 @@
             </li>
             <li>Ryan Neil is from
             <ul>
-                <li>Unknown</li>
+                <li>北京</li>
             </ul>
             </li>
             <li>Thomas Federico is from
