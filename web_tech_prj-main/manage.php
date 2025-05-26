@@ -169,10 +169,61 @@ main {
 <?php
 require_once("settings.php");
 
+// --------------- GENERATED USING AI [1] --------------------
+// Default query
 $sql = "SELECT EOInumber, job_ref, first_name, last_name, status FROM eoi";
-$result = mysqli_query($conn, $sql);
+$action = $_POST['action'] ?? '';
+$job_ref = $_POST['job_ref'] ?? '';
+$first_name = $_POST['first_name'] ?? '';
+$last_name = $_POST['last_name'] ?? '';
+$sort_field = $_POST['sort_field'] ?? 'EOInumber';
 
-if (mysqli_num_rows($result) > 0) {
+// Sanitize sort field to prevent SQL injection
+$allowed_sort_fields = ['EOInumber', 'job_ref', 'first_name', 'status'];
+if (!in_array($sort_field, $allowed_sort_fields)) {
+    $sort_field = 'EOInumber'; // fallback
+}
+
+// Modify query based on action
+if ($action === 'delete' && !empty($job_ref)) {
+    // Search by EOI/job_ref
+    $stmt = $conn->prepare("SELECT EOInumber, job_ref, first_name, last_name, status FROM eoi WHERE job_ref = ?");
+    $stmt->bind_param("s", $job_ref);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} elseif ($action === 'update_status' && (!empty($first_name) || !empty($last_name))) {
+    // Search by name
+    $conditions = [];
+    $params = [];
+    $types = '';
+
+    if (!empty($first_name)) {
+        $conditions[] = "first_name LIKE ?";
+        $params[] = "%$first_name%";
+        $types .= 's';
+    }
+
+    if (!empty($last_name)) {
+        $conditions[] = "last_name LIKE ?";
+        $params[] = "%$last_name%";
+        $types .= 's';
+    }
+
+    $whereClause = implode(' AND ', $conditions);
+    $query = "SELECT EOInumber, job_ref, first_name, last_name, status FROM eoi WHERE $whereClause ORDER BY $sort_field";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param($types, ...$params);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    // Default: list all EOIs
+    $sql .= " ORDER BY $sort_field";
+    $result = mysqli_query($conn, $sql);
+}
+  
+// -------------- END OF GENERATION ------------
+
+if ($result && mysqli_num_rows($result) > 0) {
     echo "<thead><tr>";
     echo "<th>EOI Number</th>";
     echo "<th>Job Ref</th>";
@@ -198,6 +249,9 @@ if (mysqli_num_rows($result) > 0) {
     echo "<tr><td colspan='6'>🚫 No records found.</td></tr>";
 }
 
+if (isset($stmt)) {
+    $stmt->close();
+}
 mysqli_close($conn);
 ?>
 </table>
@@ -209,3 +263,6 @@ mysqli_close($conn);
 
 </body>
 </html>
+
+
+<!-- [1] - https://chatgpt.com/share/68342225-3c08-800d-9689-96181c5d6e4f -->
