@@ -11,7 +11,7 @@ require_once("settings.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eoi_id'])) {
     $eoi_id = intval($_POST['eoi_id']);
 
-    $stmt = $conn->prepare("DELETE FROM expressions_of_interest WHERE EOInumber = ?");
+    $stmt = $conn->prepare("DELETE FROM eoi WHERE EOInumber = ?");
     $stmt->bind_param("i", $eoi_id);
 
     if ($stmt->execute()) {

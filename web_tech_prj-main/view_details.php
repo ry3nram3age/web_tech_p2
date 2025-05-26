@@ -13,7 +13,7 @@ if (!isset($_GET['eoi_id'])) {
 }
 
 $eoi_id = intval($_GET['eoi_id']);
-$sql = "SELECT * FROM expressions_of_interest WHERE EOInumber = ?";
+$sql = "SELECT * FROM eoi WHERE EOInumber = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $eoi_id);
 $stmt->execute();

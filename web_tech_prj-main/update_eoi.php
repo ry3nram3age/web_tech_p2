@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($set_clause) > 0) {
-        $sql = "UPDATE expressions_of_interest SET " . implode(', ', $set_clause) . " WHERE EOInumber = ?";
+        $sql = "UPDATE eoi SET " . implode(', ', $set_clause) . " WHERE EOInumber = ?";
         $params[] = $eoi_id;
         $types .= 'i';
 

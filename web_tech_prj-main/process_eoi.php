@@ -95,7 +95,7 @@ else {
                         WHERE table_schema = ? AND table_name = ? 
                         LIMIT 1";
     $check_stmt = $conn->prepare($table_check_sql);
-    $table_name = 'expressions_of_interest';
+    $table_name = 'eoi';
     $check_stmt->bind_param("ss", $database, $table_name);
     $check_stmt->execute();
     $check_stmt->store_result();
@@ -103,7 +103,7 @@ else {
     if ($check_stmt->num_rows === 0) {
         // create table if it doesn't exist - Max
         $create_table_sql = "
-        CREATE TABLE expressions_of_interest (
+        CREATE TABLE eoi (
         `EOInumber` int(11) NOT NULL AUTO_INCREMENT,
         `job_reference_number` int(10) NOT NULL,
         `first_name` varchar(50) NOT NULL,
@@ -127,7 +127,7 @@ else {
     }
 
     // Max's Code to insert data into EOI table
-    $sql = "INSERT INTO expressions_of_interest
+    $sql = "INSERT INTO eoi
             (job_reference_number, first_name, last_name, gender, street_address,
             suburb, state, postcode, email_address, phone_number, skills, other_skills)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
