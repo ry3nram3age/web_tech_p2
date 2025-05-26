@@ -1,12 +1,12 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['username'])) {
-    // Block access if not logged in
-    header('Location: prohibited.php');
-    exit();
-}
-?>
+#session_start();
+#
+#if (!isset($_SESSION['username'])) {
+#    // Block access if not logged in
+#    header('Location: prohibited.php');
+#    exit();
+#}
+##?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +54,6 @@ main {
 .styled-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
   background-color: #1e1e1e;
   color: white;
   font-size: 0.85rem;
@@ -108,7 +107,7 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #000;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
 .filter-form h2 {
@@ -169,7 +168,7 @@ main {
       <?php
       require_once("settings.php");
 
-      $sql = "SELECT * FROM eoi";
+      $sql = "SELECT * FROM jobs";
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) > 0) {
