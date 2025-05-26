@@ -9,7 +9,6 @@ if (!isset($_SESSION['username'])) {
 <!-- test -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +52,7 @@ main {
 .styled-table {
   width: 100%;
   border-collapse: collapse;
-    table-layout: fixed;
+  table-layout: fixed;
   background-color: #1e1e1e;
   color: white;
   font-size: 0.85rem;
