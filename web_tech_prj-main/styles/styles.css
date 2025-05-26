@@ -632,8 +632,8 @@ h4, h5 {
 }
 
 .jobs-apply {
- background-color: #4169E1;
-  color: white;
+ background-color: #28ff45;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 1rem 2rem;
   border-radius: 4px;
