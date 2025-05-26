@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expressions_of_interest`
+-- Table structure for table `eoi`
 --
 
-CREATE TABLE `expressions_of_interest` (
+CREATE TABLE `eoi` (
   `EOInumber` int(11) NOT NULL,
   `job_ref` int(10) NOT NULL,
   `first_name` varchar(50) NOT NULL,
@@ -45,10 +45,10 @@ CREATE TABLE `expressions_of_interest` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `expressions_of_interest`
+-- Dumping data for table `eoi`
 --
 
-INSERT INTO `expressions_of_interest` (`EOInumber`, `job_ref`, `first_name`, `last_name`, `gender`, `address`, `suburb`, `state`, `postcode`, `email_address`, `phone_number`, `skills`, `other_skills`, `status`) VALUES
+INSERT INTO `eoi` (`EOInumber`, `job_ref`, `first_name`, `last_name`, `gender`, `address`, `suburb`, `state`, `postcode`, `email_address`, `phone_number`, `skills`, `other_skills`, `status`) VALUES
 (1, 1, 'Tom', 'Jerry', 'Male', '21 Jump Street, California', 'Geelong', 'QLD', '3336', 'something@something.com', '0456223778', 'wwwww', 'wwwww', 'New'),
 (2, 1, 'Tom', 'Jerry', 'Male', '21 Jump Street, California', 'Geelong', 'QLD', '3336', 'something@something.com', '0456223778', 'wwwww', 'wwwww', 'New'),
 (3, 1, 'Tom', 'Jerry', 'Male', '21 Jump Street, California', 'Geelong', 'QLD', '3336', 'something@something.com', '0456223778', 'wwwww', 'wwwww', 'New');
@@ -104,9 +104,9 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 --
 
 --
--- Indexes for table `expressions_of_interest`
+-- Indexes for table `eoi`
 --
-ALTER TABLE `expressions_of_interest`
+ALTER TABLE `eoi`
   ADD PRIMARY KEY (`EOInumber`);
 
 --
@@ -126,9 +126,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `expressions_of_interest`
+-- AUTO_INCREMENT for table `eoi`
 --
-ALTER TABLE `expressions_of_interest`
+ALTER TABLE `eoi`
   MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
