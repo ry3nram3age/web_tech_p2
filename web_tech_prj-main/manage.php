@@ -53,6 +53,7 @@ main {
 .styled-table {
   width: 100%;
   border-collapse: collapse;
+    table-layout: fixed;
   background-color: #1e1e1e;
   color: white;
   font-size: 0.85rem;
