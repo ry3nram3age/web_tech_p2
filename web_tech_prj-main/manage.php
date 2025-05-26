@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 #session_start();
 #
 #if (!isset($_SESSION['username'])) {
@@ -7,6 +8,15 @@
 #    exit();
 #}
 ##?>
+=======
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('Location: prohibited.php');
+    exit();
+}
+?>
+>>>>>>> 90711d0abc3ffa2b93c57418b0d1d4126e96e373
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +37,14 @@ main {
   align-items: flex-start;
   gap: 30px;
   padding: 20px;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   flex-wrap: wrap;
 }
 
 .filter-form {
-  flex: 1 1 450px;
-  max-width: 500px;
+  flex: 1 1 300px;
+  max-width: 300px;
   background-color: #111;
   padding: 20px;
   border-radius: 10px;
@@ -75,12 +85,6 @@ main {
   background-color: #ff6600;
 }
 
-.styled-table td:hover {
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-}
-
 .styled-table thead th {
   position: sticky;
   top: 0;
@@ -88,7 +92,7 @@ main {
   z-index: 1;
 }
 
-.stylef-table tbody tr:nth-child(even) {
+.styled-table tbody tr:nth-child(even) {
   background-color: #2a2a2a;
 }
 
@@ -96,13 +100,15 @@ main {
   background-color: #333333;
   cursor: pointer;
 }
+
 .results-table h2 {
   text-align: center;
 }
 
 .results-table {
-  flex: 1;
-  max-width: 900px;
+  flex: 2;
+  min-width: 900px;
+  max-width: none;
   background-color: #111;
   padding: 20px;
   border-radius: 10px;
@@ -121,7 +127,22 @@ main {
   margin: 0 2px;
   border-radius: 4px;
 }
+<<<<<<< HEAD
   </style>
+=======
+
+.btn-view {
+  display: inline-block;
+  background-color: #1e90ff;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-view:hover {
+  background-color: #187bcd;
+}
+    </style>
+>>>>>>> 90711d0abc3ffa2b93c57418b0d1d4126e96e373
 </head>
 
 <body>
@@ -143,7 +164,6 @@ main {
 
       <label for="sort_field">Sort by</label>
       <select name="sort_field" id="sort_field">
-
         <option value="eoi_id">EOI ID</option>
         <option value="job_ref">Job Ref</option>
         <option value="first_name">First Name</option>
@@ -156,48 +176,53 @@ main {
     </form>
 
     <a href="logout.php">Logout</a>
-
-
-    
   </section>
-
 
   <section class="results-table">
     <h2>Results Table</h2>
-       <table class="styled-table">
-      <?php
-      require_once("settings.php");
+    <table class="styled-table">
+    <table class="styled-table">
+<?php
+require_once("settings.php");
 
+<<<<<<< HEAD
       $sql = "SELECT * FROM jobs";
       $result = mysqli_query($conn, $sql);
+=======
+$sql = "SELECT EOInumber, job_ref, first_name, last_name, status FROM expressions_of_interest";
+$result = mysqli_query($conn, $sql);
+>>>>>>> 90711d0abc3ffa2b93c57418b0d1d4126e96e373
 
-      if (mysqli_num_rows($result) > 0) {
-          echo "<thead><tr>";
-          $fields = mysqli_fetch_fields($result);
-          foreach ($fields as $field) {
-              echo "<th>" . htmlspecialchars($field->name) . "</th>";
-          }
-          echo "</tr></thead><tbody>";
+if (mysqli_num_rows($result) > 0) {
+    echo "<thead><tr>";
+    echo "<th>EOI Number</th>";
+    echo "<th>Job Ref</th>";
+    echo "<th>First Name</th>";
+    echo "<th>Last Name</th>";
+    echo "<th>Status</th>";
+    echo "<th>Actions</th>";
+    echo "</tr></thead><tbody>";
 
-          while ($row = mysqli_fetch_assoc($result)) {
-              echo "<tr>";
-              foreach ($fields as $field) {
-                  $columnName = $field->name;
-                  echo "<td>" . htmlspecialchars($row[$columnName]) . "</td>";
-              }
-              echo "</tr>";
-          }
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['EOInumber']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['job_ref']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View</a></td>";
+        echo "</tr>";
+    }
 
-          echo "</tbody>";
-      } else {
-          echo "<tr><td colspan='100%'>🚫 Database not found.</td></tr>";
-      }
+    echo "</tbody>";
+} else {
+    echo "<tr><td colspan='6'>🚫 No records found.</td></tr>";
+}
 
-      mysqli_close($conn);
-      ?>
+mysqli_close($conn);
+?>
+</table>
     </table>
-
-   
   </section>
 </main>
 
