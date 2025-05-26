@@ -1,14 +1,4 @@
 <?php
-<<<<<<< HEAD
-#session_start();
-#
-#if (!isset($_SESSION['username'])) {
-#    // Block access if not logged in
-#    header('Location: prohibited.php');
-#    exit();
-#}
-##?>
-=======
 session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -16,7 +6,6 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 ?>
->>>>>>> 90711d0abc3ffa2b93c57418b0d1d4126e96e373
 
 <!DOCTYPE html>
 <html lang="en">
@@ -127,9 +116,6 @@ main {
   margin: 0 2px;
   border-radius: 4px;
 }
-<<<<<<< HEAD
-  </style>
-=======
 
 .btn-view {
   display: inline-block;
@@ -142,7 +128,6 @@ main {
   background-color: #187bcd;
 }
     </style>
->>>>>>> 90711d0abc3ffa2b93c57418b0d1d4126e96e373
 </head>
 
 <body>
@@ -185,13 +170,8 @@ main {
 <?php
 require_once("settings.php");
 
-<<<<<<< HEAD
-      $sql = "SELECT * FROM jobs";
-      $result = mysqli_query($conn, $sql);
-=======
 $sql = "SELECT EOInumber, job_ref, first_name, last_name, status FROM expressions_of_interest";
 $result = mysqli_query($conn, $sql);
->>>>>>> 90711d0abc3ffa2b93c57418b0d1d4126e96e373
 
 if (mysqli_num_rows($result) > 0) {
     echo "<thead><tr>";
