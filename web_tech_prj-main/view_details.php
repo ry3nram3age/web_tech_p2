@@ -112,16 +112,25 @@ $conn->close();
 
 <main>
     <h1>EOI Details: <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></h1>
-
     <form action="update_eoi.php" method="POST">
-        <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
+    <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
 
-        <?php foreach ($row as $key => $value): ?>
-            <?php if ($key !== 'EOInumber'): ?>
-                <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
-                <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= htmlspecialchars($value) ?>">
-            <?php endif; ?>
-        <?php endforeach; ?>
+    <?php foreach ($row as $key => $value): ?>
+        <?php if ($key === 'EOInumber'): ?>
+            <!-- Skip EOInumber (already handled as hidden) -->
+            <?php continue; ?>
+        <?php elseif ($key === 'status'): ?>
+            <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+            <select id="<?= $key ?>" name="<?= $key ?>">
+                <option value="New" <?= $value === 'New' ? 'selected' : '' ?>>New</option>
+                <option value="Approved" <?= $value === 'Approved' ? 'selected' : '' ?>>Approved</option>
+                <option value="Rejected" <?= $value === 'Rejected' ? 'selected' : '' ?>>Rejected</option>
+            </select>
+        <?php else: ?>
+            <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+            <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= htmlspecialchars($value) ?>">
+        <?php endif; ?>
+    <?php endforeach; ?>
 
         <button type="submit" class="btn-save">💾 Save Changes</button>
     </form>
