@@ -155,7 +155,6 @@ else {
     $stmt->close();
     $check_stmt->close();
     $conn->close();
-
     header("Location: application_submission.php?name=" . urlencode($first_name));
     exit();
 }

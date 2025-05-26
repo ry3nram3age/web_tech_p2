@@ -1,12 +1,16 @@
 <?php
 session_start();
+
+// Get the name from the URL safely
+$name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Application Submitted</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link href="styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,28 +21,24 @@ session_start();
             padding: 0;
         }
         main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-        }
-        .message-box {
-            text-align: center;
+            max-width: 600px;
+            margin: 50px auto;
             background-color: #222;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 15px #000;
+            text-align: center;
         }
-        .message-box h1 {
-            color: #28a745;
+        h1 {
+            color: #ff6600;
             margin-bottom: 20px;
         }
-        .message-box p {
-            margin-bottom: 20px;
+        p {
+            font-size: 1.1rem;
         }
-        .message-box a {
+        a {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 30px;
             padding: 10px 20px;
             background-color: #ff6600;
             color: white;
@@ -47,7 +47,7 @@ session_start();
             font-weight: bold;
             transition: background-color 0.3s;
         }
-        .message-box a:hover {
+        a:hover {
             background-color: #e05200;
         }
     </style>
@@ -57,11 +57,9 @@ session_start();
 <?php include 'nav.inc'; ?>
 
 <main>
-    <div class="message-box">
-        <h1>✅ Application Submitted Successfully</h1>
-        <p>Thank you for submitting your application. We will review it and get back to you shortly.</p>
-        <a href="index.php">Return to Home</a>
-    </div>
+    <h1>Thank You, <?= $name ?>!</h1>
+    <p>Your application has been successfully submitted to Data Nexus.</p>
+    <a href="index.php">Return to Home</a>
 </main>
 
 <?php include 'footer.inc'; ?>
