@@ -11,7 +11,7 @@
     <meta name="description" content="DataNexus's CyberSec Job availability and descriptions">
     <meta name="keywords" content="HTML, CSS">
 
-    <!-- USED CHATGPT TO ANALYSE THE REQUIREMENTS, TO MAKE SURE WE COVERED EVERYTHING NEEDED BY THE ASSIGNMENT -->
+    <!-- USED CHATGPT TO ANALYSE THE REQUIREMENTS, TO MAKE SURE WE COVERED EVERYTHING NEEDED BY THE ASSIGNMENT (ryan)-->
     
     <!-- Author of the page -->
     <meta name="author" content="Max Dinon, Ash Jean">
@@ -133,7 +133,7 @@
                     echo "</section>";
                     $i++;
                 }
-               
+               echo "</section>";
                 ?>
     </main>
 
