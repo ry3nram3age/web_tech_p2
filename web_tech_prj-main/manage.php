@@ -129,7 +129,6 @@ main {
 }
     </style>
 </head>
-
 <body>
 
 <?php include 'nav.inc'; ?>
