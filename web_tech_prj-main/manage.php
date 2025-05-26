@@ -102,7 +102,7 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #000;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 .filter-form h2 {
@@ -189,8 +189,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View/Edit</a>
-                  <a class='btn-delete' " . urlencode($row['EOInumber']) . "'>Delete</a></td>";
+        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View/Edit</a></td>";
         echo "</tr>";
     }
 
@@ -210,26 +209,3 @@ mysqli_close($conn);
 
 </body>
 </html>
-
-
-<!--------- TASKS AND INFO FOR ME ---------
-
-5. HR manager queries (manage.php)
-Create a web page manage.php that allows a manager to make the following queries of
-the eoi table and returns a web page with the appropriate results.
-    • List all EOIs.
-    • List all EOIs for a particular position (given a job reference number).
-    • List all EOIs for a particular applicant given their first name, last name or both.
-    • Delete all EOIs with a specified job reference number
-    • Change the Status of an EOI.
-    • Provide the manager with the ability to select the field on which to sort the order in
-
-which the EOI records are displayed.
-    • Create a manager registration page with server side validation requiring unique
-
-username and a password rule, and store this information in a table.
-    • Control access to manage.php by checking username and password.
-    • Have access to the web site disabled for user a period of time on, say, three or more
-      invalid login attempts.
-
-      
