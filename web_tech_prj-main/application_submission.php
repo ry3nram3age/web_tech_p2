@@ -14,7 +14,7 @@ $eoi = isset($_GET['eoi']) ? htmlspecialchars($_GET['eoi']): "Error";
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
-        body {
+         {
             font-family: 'Poppins', sans-serif;
             background-color: #1a1a1a;
             color: #ffffff;
@@ -57,11 +57,11 @@ $eoi = isset($_GET['eoi']) ? htmlspecialchars($_GET['eoi']): "Error";
         }
     </style>
 </head>
-<body>
+<body id="application-submit-body">
 
 <?php include 'nav.inc'; ?>
 
-<main>
+<main id="application-submit-main">
     <div class="message-box">
         <h1>✅ Thank You, <?= $name ?>!</h1>
         <p>Your application has been successfully submitted. We will review it and get back to you shortly.</p>
