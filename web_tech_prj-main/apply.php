@@ -86,7 +86,7 @@
             
             <!-- Gender radio buttons -->
             <div class="gender-radio-group">
-                    <label for="gender">Gender</label>
+                    <label>Gender</label>
                     Male<input type="radio" name="gender" id="male" value="Male">
                     Female<input type="radio" name="gender" id="female" value="Female">
                     Other<input type="radio" name="gender" id="other" value="Other">
