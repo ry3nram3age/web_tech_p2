@@ -31,8 +31,8 @@ main {
 }
 
 .filter-form {
-  flex: 1 1 300px;
-  max-width: 300px;
+  flex: 1.5 1 400px;
+  max-width: 400px;
   background-color: #111;
   padding: 20px;
   border-radius: 10px;
@@ -141,10 +141,10 @@ main {
       <input type="text" id="job_ref" name="job_ref" placeholder="e.g., 00001">
 
       <label for="first_name">First Name</label>
-      <input type="text" id="first_name" name="first_name">
+      <input type="text" id="first_name" name="first_name" placeholder="Enter First Name">
 
       <label for="last_name">Last Name</label>
-      <input type="text" id="last_name" name="last_name">
+      <input type="text" id="last_name" name="last_name" placeholder="Enter Last Name">
 
       <label for="sort_field">Sort by</label>
       <select name="sort_field" id="sort_field">
@@ -155,8 +155,8 @@ main {
       </select>
 
       <button type="submit" name="action" value="list">List EOIs</button>
-      <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
-      <button type="submit" name="action" value="update_status">Update EOI Status</button>
+      <button type="submit" name="action" value="delete">Search by EOI</button>
+      <button type="submit" name="action" value="update_status">Search by Name</button>
     </form>
 
     <a href="logout.php">Logout</a>
@@ -189,7 +189,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View</a></td>";
+        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View/Edit</a></td>";
         echo "</tr>";
     }
 
