@@ -165,7 +165,6 @@ main {
   <section class="results-table">
     <h2>Results Table</h2>
     <table class="styled-table">
-    <table class="styled-table">
 <?php
 require_once("settings.php");
 
@@ -201,8 +200,7 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 ?>
 </table>
-    </table>
-  </section>
+</section>
 </main>
 
 <?php include 'footer.inc'; ?>
