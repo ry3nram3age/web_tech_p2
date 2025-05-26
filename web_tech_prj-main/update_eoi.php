@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Define allowed fields you want to update (exclude EOInumber)
     $allowed_fields = [
-        'job_ref', 'first_name', 'last_name', 'gender', 'address',
+        'job_reference_number', 'first_name', 'last_name', 'gender', 'address',
         'suburb', 'state', 'postcode', 'email_address', 'phone_number',
         'skills', 'other_skills', 'status'
     ];

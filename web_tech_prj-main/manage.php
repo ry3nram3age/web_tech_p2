@@ -169,7 +169,7 @@ main {
 <?php
 require_once("settings.php");
 
-$sql = "SELECT EOInumber, job_ref, first_name, last_name, status FROM eoi";
+$sql = "SELECT EOInumber, job_reference_number, first_name, last_name, status FROM eoi";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -185,7 +185,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . htmlspecialchars($row['EOInumber']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['job_ref']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['job_reference_number']) . "</td>";
         echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['status']) . "</td>";
