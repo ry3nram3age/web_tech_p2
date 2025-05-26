@@ -189,7 +189,8 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View/Edit</a></td>";
+        echo "<td><a class='btn-view' href='view_details.php?eoi_id=" . urlencode($row['EOInumber']) . "'>View/Edit</a>
+                  <a class='btn-delete' " . urlencode($row['EOInumber']) . "'>Delete</a></td>";
         echo "</tr>";
     }
 
