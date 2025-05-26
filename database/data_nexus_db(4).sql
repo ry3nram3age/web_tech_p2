@@ -35,7 +35,7 @@ CREATE TABLE `eoi` (
   `gender` varchar(10) NOT NULL,
   `street_address` varchar(46) NOT NULL,
   `suburb` int(60) NOT NULL,
-  `state` int(3) NOT NULL,
+  `state` varchar(3) NOT NULL,
   `postcode` varchar(4) NOT NULL,
   `email_address` varchar(360) NOT NULL,
   `phone_number` int(15) NOT NULL,
