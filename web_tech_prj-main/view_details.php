@@ -56,15 +56,42 @@ $conn->close();
             color: #ff6600;
             text-align: center;
         }
-        .details-list {
-            list-style: none;
-            padding: 0;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        .details-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #2a2a2a;
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            padding: 8px;
+            border: none;
             border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-save {
+            background-color: #1e90ff;
+            color: white;
+        }
+        .btn-save:hover {
+            background-color: #187bcd;
+        }
+        .btn-delete {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .btn-delete:hover {
+            background-color: #e03e3e;
         }
         .back-link {
             display: block;
@@ -85,11 +112,25 @@ $conn->close();
 
 <main>
     <h1>EOI Details: <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></h1>
-    <ul class="details-list">
+
+    <form action="update_eoi.php" method="POST">
+        <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
+
         <?php foreach ($row as $key => $value): ?>
-            <li><strong><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</strong> <?= nl2br(htmlspecialchars($value)) ?></li>
+            <?php if ($key !== 'EOInumber'): ?>
+                <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+                <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= htmlspecialchars($value) ?>">
+            <?php endif; ?>
         <?php endforeach; ?>
-    </ul>
+
+        <button type="submit" class="btn-save">💾 Save Changes</button>
+    </form>
+
+    <form action="delete_eoi.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?');">
+        <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
+        <button type="submit" class="btn-delete">🗑 Delete Record</button>
+    </form>
+
     <a class="back-link" href="manage.php">← Back to Manage Page</a>
 </main>
 
