@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    // Block access if not logged in
+    header('Location: prohibited.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,18 +63,40 @@ main {
 .styled-table th,
 .styled-table td {
   border: 1px solid #333;
-  padding: 8px 10px;
+  padding: 6px 8px;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 150px;
 }
 
 .styled-table th {
   background-color: #ff6600;
 }
 
+.styled-table td:hover {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.styled-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #ff6600;
+  z-index: 1;
+}
+
+.stylef-table tbody tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #333333;
+  cursor: pointer;
+}
 .results-table h2 {
   text-align: center;
 }
@@ -76,8 +108,7 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #000;
-  overflow-x: auto;
-  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .filter-form h2 {
@@ -113,6 +144,7 @@ main {
 
       <label for="sort_field">Sort by</label>
       <select name="sort_field" id="sort_field">
+
         <option value="eoi_id">EOI ID</option>
         <option value="job_ref">Job Ref</option>
         <option value="first_name">First Name</option>
@@ -123,11 +155,17 @@ main {
       <button type="submit" name="action" value="delete">Delete EOIs by Job Ref</button>
       <button type="submit" name="action" value="update_status">Update EOI Status</button>
     </form>
+
+    <a href="logout.php">Logout</a>
+
+
+    
   </section>
+
 
   <section class="results-table">
     <h2>Results Table</h2>
-    <table class="styled-table">
+       <table class="styled-table">
       <?php
       require_once("settings.php");
 
@@ -159,6 +197,8 @@ main {
       mysqli_close($conn);
       ?>
     </table>
+
+   
   </section>
 </main>
 

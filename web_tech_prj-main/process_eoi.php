@@ -1,6 +1,13 @@
 <?php
 require_once 'settings.php';
 //AUTHOR - Max Dinon, Ryan Neill
+//Security session id stuff so users cant access this page
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    header("Location: direct_access_blocked.php"); // Forbidden
+    exit();
+}
+
 function test_input($data) 
 {
     $data = trim($data);
@@ -74,9 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             echo "An address needs to be entered";
         }
-        elseif (!preg_match("/^[0-9]{1,5}[A-Za-z]?\s[A-Za-z\s]{2,50}$/", $address)) {
-            echo "Address needs to be in the form 123 Main Street, 12B Victoria Rd";
-        }
+       
         elseif (empty($suburb)) 
         {
             echo "You must enter a suburb";
@@ -122,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 //create table if it doesnt exist - Max
                 $create_table_sql = "
                 CREATE TABLE expressions_of_interest (
-                `EOInumber` int(11) NOT NULL,
+                `EOInumber` int(11) NOT NULL AUTO_INCREMENT,
                 `job_reference_number` int(10) NOT NULL,
                 `first_name` varchar(50) NOT NULL,
                 `last_name` varchar(50) NOT NULL,
@@ -131,11 +136,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 `suburb` int(60) NOT NULL,
                 `state` int(3) NOT NULL,
                 `postcode` varchar(4) NOT NULL,
-                `email address` varchar(360) NOT NULL,
+                `email_address` varchar(360) NOT NULL,
                 `phone_number` int(15) NOT NULL,
                 `skills` varchar(500) NOT NULL,
                 `other_skills` varchar(500) NOT NULL,
-                `status` varchar(10) NOT NULL DEFAULT 'New'
+                `status` varchar(10) NOT NULL DEFAULT 'New',
+                PRIMARY KEY (EOInumber)
                 )";
                 
                 if (!mysqli_query($conn, $create_table_sql)) {
@@ -170,13 +176,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
             $eoiNumber = $conn->insert_id;
 
-            echo "<h2>Thank you, $first_name!</h2>";
-            echo "<p>Your Expression of Interest has been submitted successfully.</p>";
-            echo "<p>Your EOI number is: <strong>$eoiNumber</strong></p>";
+         
 
             $stmt->close();
             $check_stmt->close();
             $conn->close();
+
+            header("Location: applicaion_submission.php");
+            exit();
 
         }
 ?>
