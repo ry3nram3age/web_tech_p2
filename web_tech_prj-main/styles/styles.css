@@ -391,8 +391,8 @@ th, td {
 }
 
 th {
-    background-color: #4169E1; /* Orange background for table headers */
-    color: white; /* White text color for headers */
+    background-color: #3aec49; /* Orange background for table headers */
+    color: rgb(0, 0, 0); /* White text color for headers */
     font-weight: bold; /* Bold font weight for headers */
     text-transform: uppercase; /* Uppercase text for headers */
 }
@@ -669,7 +669,7 @@ aside {
 }
 
 aside h2 {
-    color: #ff6600;
+    color: #59ff53;
     text-align: center;
 }
 
@@ -746,8 +746,8 @@ textarea {
 /* Submit and reset buttons */
 input[type="submit"], 
 input[type="reset"] {
-    background-color: #4169E1;
-    color: white;
+    background-color: #43ff1e;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 0.8rem 2rem;
     border-radius: 4px;
@@ -770,7 +770,7 @@ input[type="reset"] {
     appearance: auto; /* allow default styling for accessibility */
     width: 18px;
     height: 18px;
-    accent-color: #ff6600; /* orange when selected */
+    accent-color: #36dd20; /* orange when selected */
     cursor: pointer;
   }
   
@@ -1120,7 +1120,6 @@ img {
   
     .image-box {
       width: 90%;
-      padding: -2rem;
       box-sizing: border-box;
       text-align: center;
     }
