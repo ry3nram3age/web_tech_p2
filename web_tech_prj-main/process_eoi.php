@@ -155,7 +155,7 @@ else {
     $stmt->close();
     $check_stmt->close();
     $conn->close();
-    header("Location: application_submission.php?name=" . urlencode($first_name));
+    header("Location: application_submission.php?name=" . urlencode($first_name) . "&eoi=".  urlencode($eoiNumber));
     exit();
 }
 ?>
