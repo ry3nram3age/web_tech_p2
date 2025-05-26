@@ -169,7 +169,7 @@ main {
 <?php
 require_once("settings.php");
 
-$sql = "SELECT EOInumber, job_ref, first_name, last_name, status FROM expressions_of_interest";
+$sql = "SELECT EOInumber, job_ref, first_name, last_name, status FROM eoi";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
