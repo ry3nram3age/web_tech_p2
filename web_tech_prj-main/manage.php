@@ -165,7 +165,6 @@ main {
   <section class="results-table">
     <h2>Results Table</h2>
     <table class="styled-table">
-    <table class="styled-table">
 <?php
 require_once("settings.php");
 
@@ -236,7 +235,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . htmlspecialchars($row['EOInumber']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['job_ref']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['job_reference_number']) . "</td>";
         echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['status']) . "</td>";
@@ -255,8 +254,7 @@ if (isset($stmt)) {
 mysqli_close($conn);
 ?>
 </table>
-    </table>
-  </section>
+</section>
 </main>
 
 <?php include 'footer.inc'; ?>

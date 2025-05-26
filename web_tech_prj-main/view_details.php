@@ -112,19 +112,43 @@ $conn->close();
 
 <main>
     <h1>EOI Details: <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></h1>
-
     <form action="update_eoi.php" method="POST">
-        <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
+    <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
 
-        <?php foreach ($row as $key => $value): ?>
-            <?php if ($key !== 'EOInumber'): ?>
-                <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
-                <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= htmlspecialchars($value) ?>">
-            <?php endif; ?>
-        <?php endforeach; ?>
+    <?php foreach ($row as $key => $value): ?>
+        <?php if ($key === 'EOInumber'): ?>
+            <!-- Skip EOInumber (already handled as hidden) -->
+            <?php continue; ?>
+        <?php elseif ($key === 'status'): ?>
+            <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+            <select id="<?= $key ?>" name="<?= $key ?>">
+                <option value="New" <?= $value === 'New' ? 'selected' : '' ?>>New</option>
+                <option value="Approved" <?= $value === 'Approved' ? 'selected' : '' ?>>Approved</option>
+                <option value="Rejected" <?= $value === 'Rejected' ? 'selected' : '' ?>>Rejected</option>
+            </select>
+        <?php elseif ($key === 'state'): ?>
+            <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+            <select id="<?= $key ?>" name="<?= $key ?>">
+                <option value="VIC" <?= $value === 'VIC' ? 'selected' : '' ?>>VIC</option>
+                <option value="NSW" <?= $value === 'NSW' ? 'selected' : '' ?>>NSW</option>
+                <option value="QLD" <?= $value === 'QLD' ? 'selected' : '' ?>>QLD</option>
+                <option value="WA" <?= $value === 'WA' ? 'selected' : '' ?>>WA</option>
+                <option value="SA" <?= $value === 'SA' ? 'selected' : '' ?>>SA</option>
+                <option value="TAS" <?= $value === 'TAS' ? 'selected' : '' ?>>TAS</option>
+                <option value="NT" <?= $value === 'NT' ? 'selected' : '' ?>>NT</option>
+                <option value="ACT" <?= $value === 'ACT' ? 'selected' : '' ?>>ACT</option>
+            </select>
+        <?php elseif ($key === 'skills' || $key === 'other_skills'): ?>
+            <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+            <textarea id="<?= $key ?>" name="<?= $key ?>" rows="4"><?= htmlspecialchars($value) ?></textarea>
+        <?php else: ?>
+            <label for="<?= $key ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?>:</label>
+            <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= htmlspecialchars($value) ?>">
+        <?php endif; ?>
+    <?php endforeach; ?>
 
-        <button type="submit" class="btn-save">💾 Save Changes</button>
-    </form>
+    <button type="submit">Save Changes</button>
+</form>
 
     <form action="delete_eoi.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?');">
         <input type="hidden" name="eoi_id" value="<?= $eoi_id ?>">
