@@ -89,74 +89,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Login</title>
     <style>
-      body { font-family: 'Poppins', sans-serif; }
-      .login-container {
-        background-color: #222;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #000;
-        width: 650px;
-        margin: 40px auto;
-      }
-      .login-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: #ff6600;
-        padding-bottom: 1rem;
-      }
-      label {
-        display: block;
-        margin: 12px 0 5px;
-      }
-      input[type="text"], input[type="email"], input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background: #333;
-        color: white;
-      }
-      button {
-        width: 100%;
-        padding: 12px;
-        margin-top: 20px;
-        background-color: #ff6600;
-        border: none;
-        color: white;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-      button:hover {
-        background-color: #e05200;
-      }
-      .error {
-        color: #ff4d4d;
-        text-align: center;
-        margin-top: 15px;
-        font-weight: bold;
-      }
+     
     </style>
 </head>
-<body>
+<body id="login-body">
 <?php include 'nav.inc'; ?>
 
 <main>
   <div class="login-container">
     <h2>Login</h2>
     <form method="POST" action="login.php" novalidate>
-      <label for="username">Username</label>
+      <label for="username" class="login-label">Username</label>
       <input type="text" id="username" name="username" placeholder="Please enter your username">
 
-      <label for="password">Password</label>
+      <label for="password" class="login-label">Password</label>
       <input type="password" id="password" name="password" placeholder="Please enter your password">
 
-      <button type="submit">Login</button>
-
-      <?php if (!empty($error_message)): ?>
-          <div class="error"><?= htmlspecialchars($error_message) ?></div>
-      <?php endif; ?>
+      <button type="submit" id="login-btn">Login</button>
     </form>
   </div>
 </main>
