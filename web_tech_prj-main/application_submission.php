@@ -1,6 +1,10 @@
 <?php
 session_start();
+
+// Safely get the name from the URL (passed after form submission)
+$name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,8 +62,8 @@ session_start();
 
 <main>
     <div class="message-box">
-        <h1>✅ Application Submitted Successfully</h1>
-        <p>Thank you for submitting your application. We will review it and get back to you shortly.</p>
+        <h1>✅ Thank You, <?= $name ?>!</h1>
+        <p>Your application has been successfully submitted. We will review it and get back to you shortly.</p>
         <a href="index.php">Return to Home</a>
     </div>
 </main>
