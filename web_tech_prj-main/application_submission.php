@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Get the name from the URL safely
+// Safely get the name from the URL (passed after form submission)
 $name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
 ?>
 
@@ -10,7 +10,7 @@ $name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
 <head>
     <meta charset="UTF-8">
     <title>Application Submitted</title>
-    <link href="styles/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
         body {
@@ -21,24 +21,28 @@ $name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
             padding: 0;
         }
         main {
-            max-width: 600px;
-            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .message-box {
+            text-align: center;
             background-color: #222;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 15px #000;
-            text-align: center;
         }
-        h1 {
-            color: #ff6600;
+        .message-box h1 {
+            color: #28a745;
             margin-bottom: 20px;
         }
-        p {
-            font-size: 1.1rem;
+        .message-box p {
+            margin-bottom: 20px;
         }
-        a {
+        .message-box a {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 10px;
             padding: 10px 20px;
             background-color: #ff6600;
             color: white;
@@ -47,7 +51,7 @@ $name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
             font-weight: bold;
             transition: background-color 0.3s;
         }
-        a:hover {
+        .message-box a:hover {
             background-color: #e05200;
         }
     </style>
@@ -57,9 +61,11 @@ $name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Applicant';
 <?php include 'nav.inc'; ?>
 
 <main>
-    <h1>Thank You, <?= $name ?>!</h1>
-    <p>Your application has been successfully submitted to Data Nexus.</p>
-    <a href="index.php">Return to Home</a>
+    <div class="message-box">
+        <h1>✅ Thank You, <?= $name ?>!</h1>
+        <p>Your application has been successfully submitted. We will review it and get back to you shortly.</p>
+        <a href="index.php">Return to Home</a>
+    </div>
 </main>
 
 <?php include 'footer.inc'; ?>
