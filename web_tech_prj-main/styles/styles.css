@@ -1689,6 +1689,18 @@ img {
       }
 
 
+      #enhancements-main {
+      
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;  /* if you want items stacked vertically */
+          text-align: center;
+          padding: 20px;
+          min-height: 80vh;  /* optional: to help center vertically */
+      
+      }
+
      /* ===== MOBILE RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
   #manage-main {

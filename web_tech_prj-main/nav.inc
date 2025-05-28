@@ -12,6 +12,8 @@
             <a href="about.php" class="home-navlinks">About</a>
               <a href="login.php" class="home-navlinks">Login</a>
               <a href="managers_register.php" class="home-navlinks">Manager Registration</a>
+              <a href="enhancements.php" class="home-navlinks">Enhancements</a>
+
         </nav>
           
     </header>

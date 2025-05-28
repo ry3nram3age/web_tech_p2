@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <main id="register_manager_main">
     <div class="register-container">
         <h2>Register New Manager</h2>
-        <form method="POST" action="managers_register.php">
+        <form method="POST" action="managers_register.php" novalidate>
         <a class="back-link" href="manage.php">← Back to Manage Page</a>
             <label class="manager_register_labels" for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="Enter username" required>
