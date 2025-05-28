@@ -25,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $last_name = test_input($_POST["lastName"]);
     $email = test_input($_POST["email"]);
     $dob = test_input($_POST["dateOfBirth"]);
-    $gender = test_input($_POST["gender"]);
+    $gender = isset($_POST['gender']) ? test_input($_POST['gender']) : '';
     $address = test_input($_POST["address"]);
     $suburb = test_input($_POST['suburb']);
-    $state = test_input($_POST['state']);
+    $state  = isset($_POST['state'])  ? test_input($_POST['state'])  : '';
     $postcode = test_input($_POST['postcode']);
     $phoneNumber = test_input($_POST['phoneNumber']);
     $requiredTechnicalList = test_input($_POST['requiredTechnicalList']);
