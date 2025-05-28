@@ -1,6 +1,14 @@
 <?php
 require_once("settings.php");
 
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('Location: prohibited.php');
+    exit();
+}
+
+
 $error = "";
 $success = "";
 
@@ -42,96 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Register Manager</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-            padding: 20px;
-        }
-        .register-container {
-            background-color: #222;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.6);
-            width: 100%;
-            max-width: 420px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .register-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
-        }
-        .register-container h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #ff6600;
-            font-size: 1.8rem;
-        }
-        label {
-            display: block;
-            margin: 15px 0 8px;
-            font-size: 0.95rem;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #444;
-            border-radius: 6px;
-            background: #333;
-            color: white;
-            font-size: 1rem;
-            transition: border 0.3s ease;
-        }
-        input[type="text"]:focus, input[type="password"]:focus {
-            border: 1px solid #ff6600;
-            outline: none;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 25px;
-            background-color: #ff6600;
-            border: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        button:hover {
-            background-color: #e05200;
-            transform: scale(1.02);
-        }
-        .message {
-            text-align: center;
-            margin-top: 18px;
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-        .error {
-            color: #ff4d4d;
-        }
-        .success {
-            color: #28a745;
-        }
-    </style>
 </head>
-<body>
+<body id="register_manager_body">
 <?php include "nav.inc"?>
-<main>
+<main id="register_manager_main">
     <div class="register-container">
         <h2>Register New Manager</h2>
         <form method="POST" action="managers_register.php">
+        <a class="back-link" href="manage.php">← Back to Manage Page</a>
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="Enter username" required>
 

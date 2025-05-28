@@ -10,6 +10,8 @@
             <a href="jobs.php" class="home-navlinks">Jobs</a>
             <a href="apply.php" class="home-navlinks">Apply</a>
             <a href="about.php" class="home-navlinks">About</a>
+              <a href="login.php" class="home-navlinks">Login</a>
+              <a href="managers_register.php" class="home-navlinks">Manager Registration</a>
         </nav>
-            <a href="login.php" class="home-navlinks">Login</a>
+          
     </header>
