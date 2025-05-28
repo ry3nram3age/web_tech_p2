@@ -1639,7 +1639,7 @@ img {
           color: #ff6600;
           font-size: 1.8rem;
       }
-      label {
+      #manager_register_labels {
           display: block;
           margin: 15px 0 8px;
           font-size: 0.95rem;
@@ -1658,7 +1658,7 @@ img {
           border: 1px solid #ff6600;
           outline: none;
       }
-      button {
+      #manager_register_button {
           width: 100%;
           padding: 12px;
           margin-top: 25px;
@@ -1788,4 +1788,40 @@ img {
       font-size: 0.9rem;
   }
 }
+/* 📱 Mobile responsiveness for manager registration */
+@media screen and (max-width: 480px) {
+  #register_manager_main {
+      padding: 10px;
+  }
+
+  .register-container {
+      padding: 25px 15px;
+      margin: 20px auto;
+      width: 90%;
+  }
+
+  .register-container h2 {
+      font-size: 1.5rem;
+  }
+
+  #manager_register_labels {
+      font-size: 0.85rem;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+      padding: 10px;
+      font-size: 0.95rem;
+  }
+
+  #manager_register_button {
+      font-size: 1rem;
+      padding: 10px;
+  }
+
+  .message {
+      font-size: 0.9rem;
+  }
+}
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 26, 2025 at 02:11 PM
+-- Generation Time: May 28, 2025 at 01:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -49,7 +49,7 @@ CREATE TABLE `eoi` (
 --
 
 INSERT INTO `eoi` (`EOInumber`, `job_reference_number`, `first_name`, `last_name`, `gender`, `street_address`, `suburb`, `state`, `postcode`, `email_address`, `phone_number`, `skills`, `other_skills`, `status`) VALUES
-(5, 2, 'John', 'Doe', 'Male', '123 Main St', 'Melbourne', 'VIC', '3000', 'john.doe@example.com', 412345678, 'Java, PHP', 'Graphic Design', 'New'),
+(5, 2, 'John', 'Doe', 'Male', '123 Main St', 'Melbourne', 'VIC', '3333', 'john.doe@example.com', 412345678, 'Java, PHP', 'Graphic Design', 'New'),
 (6, 2, 'Jane', 'Smith', 'Female', '456 King St', 'Sydney', 'NSW', '2000', 'jane.smith@example.com', 423456789, 'Python, SQL', 'Public Speaking', 'New'),
 (7, 2, 'Alice', 'Johnson', 'Female', '789 Queen St', 'Brisbane', 'QLD', '4000', 'alice.j@example.com', 434567890, 'C#, .NET', 'Marketing', 'Approved'),
 (8, 1, 'Bob', 'Williams', 'Male', '321 Collins St', 'Melbourne', 'VIC', '3000', 'bob.w@example.com', 445678901, 'React, JavaScript', 'UI Design', 'Rejected'),
@@ -83,8 +83,9 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `position`, `company`, `location`, `salary`, `description`, `responsibilities`, `essential_qualifications`, `preferable_qualifications`, `languages`) VALUES
-(1, 'Cybersecurity Specialist', 'DataNexus's CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 'The Cybersecurity Specialist at DataNexus's CyberSec will play a key role in safeguarding our clients' digital assets by identifying vulnerabilities, implementing security protocols, and responding to incidents. You will work with advanced technologies to ensure robust security across systems and networks.', 'Perform vulnerability assessments and penetration testing. Lead incident response and security breach resolution. Design and implement secure networks and systems. Monitor security alerts and proactively defend against cyber threats. Conduct security audits and provide recommendations for improvements.', '3+ years of hands-on cybersecurity experience. Strong knowledge of network protocols, firewalls, and security tools. Certifications: CISSP, CEH, CompTIA Security+, or equivalent. Experience with security platforms like Splunk, Nessus, or Wireshark. Excellent problem-solving and communication skills.', 'Experience in a Security Operations Center (SOC). Advanced certifications (e.g., CISM, CCSP, OSCP). Programming knowledge (Python, PowerShell, Bash). Experience with cloud security (AWS, Azure, GCP).', 'English (fluent, written and spoken). Additional languages (Spanish, Mandarin) are a plus.'),
-(2, 'Investigation Team Leader', 'DataNexus's CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 'The Investigation Leader will be responsible for overseeing cybersecurity investigations related to incident response, digital forensics, and threat analysis. They will lead a team to identify and mitigate cybersecurity threats while ensuring the integrity of digital evidence and maintaining a high standard of investigative practices.', 'Lead and manage cybersecurity investigations. Collaborate with internal cybersecurity teams. Analyse and document findings. Ensure digital evidence complies with legal standards. Mentor junior investigators. Stay updated on current trends.', 'Bachelor's degree in Cybersecurity, IT, or related field. 5+ years experience in cybersecurity investigations. Proven leadership experience. Knowledge of cybersecurity frameworks/tools. Strong analytical and communication skills.', 'Master's degree in Cybersecurity or related field. Relevant certifications (e.g. CEH, CISSP, CCFP). Experience with cloud security. Familiarity with malware analysis.', 'English (fluent, both written and spoken). Additional languages (Spanish, French, Mandarin) are a pl');
+(1, 'Cybersecurity Specialist', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$90,000 - $130,000', 'The Cybersecurity Specialist at DataNexus\'s CyberSec will play a key role in safeguarding our clients\' digital assets by identifying vulnerabilities, implementing security protocols, and responding to incidents. You will work with advanced technologies to ensure robust security across systems and networks.', 'Perform vulnerability assessments and penetration testing. Lead incident response and security breach resolution. Design and implement secure networks and systems. Monitor security alerts and proactively defend against cyber threats. Conduct security audits and provide recommendations for improvements.', '3+ years of hands-on cybersecurity experience. Strong knowledge of network protocols, firewalls, and security tools. Certifications: CISSP, CEH, CompTIA Security+, or equivalent. Experience with security platforms like Splunk, Nessus, or Wireshark. Excellent problem-solving and communication skills.', 'Experience in a Security Operations Center (SOC). Advanced certifications (e.g., CISM, CCSP, OSCP). Programming knowledge (Python, PowerShell, Bash). Experience with cloud security (AWS, Azure, GCP).', 'English (fluent, written and spoken). Additional languages (Spanish, Mandarin) are a plus.'),
+(2, 'Investigation Team Leader', 'DataNexus\'s CyberSec', 'Melbourne HQ', '$95,000 - $130,000', 'The Investigation Leader will be responsible for overseeing cybersecurity investigations related to incident response, digital forensics, and threat analysis. They will lead a team to identify and mitigate cybersecurity threats while ensuring the integrity of digital evidence and maintaining a high standard of investigative practices.', 'Lead and manage cybersecurity investigations. Collaborate with internal cybersecurity teams. Analyse and document findings. Ensure digital evidence complies with legal standards. Mentor junior investigators. Stay updated on current trends.', 'Bachelor\'s degree in Cybersecurity, IT, or related field. 5+ years experience in cybersecurity investigations. Proven leadership experience. Knowledge of cybersecurity frameworks/tools. Strong analytical and communication skills.', 'Master\'s degree in Cybersecurity or related field. Relevant certifications (e.g., CEH, CISSP, CCFP). Experience with cloud security. Familiarity with malware analysis.', 'English (fluent, both written and spoken). Additional languages (Spanish, French, Mandarin)');
+
 -- --------------------------------------------------------
 
 --
@@ -99,24 +100,32 @@ CREATE TABLE `login_attempts` (
   `locked_until` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `username`, `attempts`, `last_attempt`, `locked_until`) VALUES
+(6, 'adminHR', 4, '2025-05-28 11:16:07', '2025-05-28 03:21:07');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `managers`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `managers` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `managers`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'adminHR', 'adminHR123');
+INSERT INTO `managers` (`id`, `username`, `password`) VALUES
+(1, 'adminHR', '$2y$10$.0Hr.Jp48Fg9inZ2QPmFhOfyBVmRcC8YRZI5vLl/ZoH56iZf85QQK'),
+(2, 'JohnManager', '$2y$10$6JLDBxIWZF7ZnF/6tlsRH..VR2e8PRsnC1km.lkscNqEZqhHjBgUm');
 
 --
 -- Indexes for dumped tables
@@ -141,10 +150,11 @@ ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `managers`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `managers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -166,13 +176,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `managers`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `managers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

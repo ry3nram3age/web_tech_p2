@@ -58,13 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2>Register New Manager</h2>
         <form method="POST" action="managers_register.php">
         <a class="back-link" href="manage.php">← Back to Manage Page</a>
-            <label for="username">Username</label>
+            <label class="manager_register_labels" for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="Enter username" required>
 
-            <label for="password">Password</label>
+            <label class="manager_register_labels" for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="At least 6 characters" required>
 
-            <button type="submit">Register</button>
+            <button id="manager_register_button" type="submit">Register</button>
         </form>
 
         <?php if (!empty($error)): ?>
